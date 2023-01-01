@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="buy">
+
+	<insert id="insert" parameterType="buyVO">
+		insert into buy values (null,
+		#{by_pbid}, #{by_housesn}, #{by_state}, #{by_pbname}, #{by_suplyint},
+		#{by_housetype}, #{by_recrude}, #{by_winannde}, #{by_url}, #{by_brtc},
+		#{by_signgu}, #{by_fulladdr}, #{by_hsmp}, #{by_sumsuplyco},
+		#{by_entity}, #{by_prtpay}, #{by_surlus}, #{by_beginde}, #{by_end},
+		#{br_refer})
+	</insert>
 </mapper>
