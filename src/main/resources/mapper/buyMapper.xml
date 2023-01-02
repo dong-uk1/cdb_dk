@@ -8,6 +8,10 @@
 		#{by_housetype}, #{by_recrude}, #{by_winannde}, #{by_url}, #{by_brtc},
 		#{by_signgu}, #{by_fulladdr}, #{by_hsmp}, #{by_sumsuplyco},
 		#{by_entity}, #{by_prtpay}, #{by_surlus}, #{by_beginde}, #{by_end},
-		#{br_refer})
+		#{by_refer})
 	</insert>
+
+	<select id="sel_list" parameterType="buyVO" resultType="buyVO">
+		select * from buy where br_brtc=#{br_brtc} and br_signgu=#{br_signgu}
+	</select>
 </mapper>

@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="borrow">
+
+	<insert id="insert" parameterType="borrowVO">
+		insert into borrow values
+		(null, #{br_pbid}, #{br_suplyhoco}, #{br_housesn},
+		#{br_state},
+		#{br_pbname}, #{br_suplyint}, #{br_housetype}, #{br_suplytype},
+		#{br_recrude}, #{br_winannde}, #{br_url}, #{br_brtc}, #{br_signgu},
+		#{br_fulladdr}, #{br_hsmp}, #{br_totalhshold}, #{br_sumsuplyco},
+		#{br_rentgtn}, #{br_entity}, #{br_prtpay}, #{br_surlus},
+		#{br_monthrent}, #{br_beginde}, #{br_end},#{br_refrnc})
+	</insert>
+	
+	<select id="sel_list" parameterType="borrowVO" resultType="borrowVO">
+		select * from borrow where br_brtc=#{br_brtc} and br_signgu=#{br_signgu}
+	</select>
 </mapper>
