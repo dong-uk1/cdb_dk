@@ -14,13 +14,14 @@ import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.extern.log4j.Log4j;
 
 @RestController
 @Log4j
-//@RequestMapping("/cdb")
+@RequestMapping("/cdb")
 public class GetData {
 
 	@Autowired
@@ -39,7 +40,7 @@ public class GetData {
 			// api url 주소
 			String apiUrl = "http://apis.data.go.kr/1613000/HWSPR02/rsdtRcritNtcList?"
 					+ "serviceKey=pABfPJQMPmS/e5jUDA/ljQb85NfvBWLV0l7GsNHLD3XnFiYuNElsnqRS9Cg8cZfEDgZVEcdzCVnm0/gkE3nskw=="
-					+ "&numOfRows=133";
+					+ "&numOfRows=200&pageNo=3";
 
 			// URL 객체 생성
 			URL url = new URL(apiUrl);
@@ -139,6 +140,11 @@ public class GetData {
 				vo.setBr_refrnc(refrnc);
 
 				dao.insert(vo);
+				
+				// 총 453개의 데이터가 넘어옴.
+				// 1) numofRows=200 pageNo=1  --> 200
+				// 2) numOfRows=200 pageNo=2  --> 200
+				// 3) numOfRows=200 pageNo=3  --> 70
 			}
 
 		} catch (Exception e) {
@@ -155,7 +161,7 @@ public class GetData {
 		try {
 			String apiUrl = "http://apis.data.go.kr/1613000/HWSPR02/ltRsdtRcritNtcList?"
 					+ "serviceKey=pABfPJQMPmS/e5jUDA/ljQb85NfvBWLV0l7GsNHLD3XnFiYuNElsnqRS9Cg8cZfEDgZVEcdzCVnm0/gkE3nskw=="
-					+ "&pblancId=12774";
+					+ "&numOfRows=100&pageNo=1";
 			URL url = new URL(apiUrl);
 			HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 			urlConnection.connect();
@@ -223,6 +229,8 @@ public class GetData {
 				vo.setBy_surlus(surlus);
 				vo.setBy_beginde((Date) date.parse(beginDe));
 				vo.setBy_end((Date) date.parse(endDe));
+				
+				dao2.insert(vo);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
