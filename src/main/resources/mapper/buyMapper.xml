@@ -12,6 +12,10 @@
 	</insert>
 
 	<select id="sel_list" parameterType="buyVO" resultType="buyVO">
-		select * from buy where br_brtc=#{br_brtc} and br_signgu=#{br_signgu}
+		select * from buy where by_brtc=#{by_brtc}
+	</select>
+	
+	<select id="all" resultType="BuyVO">
+		select * from buy
 	</select>
 </mapper>

@@ -16,7 +16,11 @@ public class BuyDAO {
 		my.insert("buy.insert", vo);
 	}
 	
-	public List<BuyVO> sel_list(BuyVO vo) {
-		return my.selectList("buy.sel_list");
+	public List<BuyVO> sel_list(String by_brtc) {
+		return my.selectList("buy.sel_list", by_brtc);
+	}
+	
+	public List<BuyVO> all() {
+		return my.selectList("buy.all");
 	}
 }
