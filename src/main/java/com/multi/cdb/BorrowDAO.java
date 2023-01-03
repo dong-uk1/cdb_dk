@@ -23,8 +23,12 @@ public class BorrowDAO {
 	}
 	
 	// 검색결과에 맞는 값을 반환해줄 메서드
-	// 요청 변수로 광역시 변수와 시군구 변수로 요청
-	public List<BorrowVO> sel_list(BorrowVO vo) {
-		return my.selectList("borrow.sel_list", vo);
+	// 요청 변수로 광역시 변수로 요청
+	public List<BorrowVO> sel_list(String br_brtc) {
+		return my.selectList("borrow.sel_list", br_brtc);
+	}
+	
+	public List<BorrowVO> all() {
+		return my.selectList("borrow.all");
 	}
 }

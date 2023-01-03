@@ -1,12 +1,17 @@
 package com.multi.cdb;
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Data;
 
 
 @Data
 public class BorrowVO {
+	private int br_sequence; // 일련번호 pk
 	private String br_pbid; // 공고 ID
+	private String br_suplyhoco;  // 전세임대에 해당할 경우 단지 번호
+	private int br_housesn; // 단지 시리얼번호(단지 정보가 여러개일경우 구분을 위함)
 	private String br_state; // 공고 상태명
 	private String br_pbname; // 공고명
 	private String br_suplyint; // 공급 기관명
@@ -25,7 +30,7 @@ public class BorrowVO {
 	private int br_entity; // 최소 계약금
 	private int br_prtpay; // 최소 중도금
 	private int br_surlus; // 최소 잔금
-	private int br_mothrent; // 최소월임대료
+	private int br_monthrent; // 최소월임대료
 	private Date br_beginde; // 모집 시작 일자
 	private Date br_end; // 모집 종료 일자
 	private String br_refrnc; // 문의처
