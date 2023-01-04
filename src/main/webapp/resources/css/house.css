@@ -1,0 +1,35 @@
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+	font-weight: bold;
+}
+
+.map-img {
+	text-align: center;
+}
+
+area:hover {
+	cursor: pointer;
+}
+
+.total {
+	display: flex;
+	justify-content: space-between;
+	flex-flow: row nowrap
+}
+
+button {
+	margin:0px;
+	padding: 2px;
+}
+
+table {
+	text-align: center;
+}
+
+.tb {
+	width:7000px;
+}
