@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-house
+<h3>This is footer</h3>
 </body>
 </html>

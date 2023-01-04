@@ -8,14 +8,14 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
-	
+
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<context:property-placeholder
 		location="classpath:db.properties" />
 
 	<!-- 1. dbcp싱글톤 필요(jdbc 1,2단계, 드라이버설정+db연결 -->
 	<bean id="dbcp" class="org.apache.commons.dbcp.BasicDataSource">
-		<property name="driverClassName" value="${jdbc.driver}"/>
+		<property name="driverClassName" value="${jdbc.driver}" />
 		<property name="url" value="${jdbc.url}" />
 		<property name="username" value="${jdbc.username}" />
 		<property name="password" value="${jdbc.password}" />
@@ -23,16 +23,16 @@
 
 	<!-- 2. mybatis설정만 담당하는 싱글톤 필요(1에서 만든 dbcp를 낌) -->
 	<!-- myBatis의 설정 객체 생성 -->
-	<!-- <bean id="config" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<bean id="config" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dbcp" />
-		<property name="configLocation"
-			value="classpath:config.xml" />
-	</bean> -->
+		<property name="configLocation" value="classpath:config.xml" />
+	</bean>
 
 	<!-- 3. mybatis싱글톤 필요 -->
 	<!-- myBatis의 싱글톤 객체 생성 -->
-	<!-- <bean id="my" class="org.mybatis.spring.SqlSessionTemplate">
+	<bean id="my" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="config" />
-	</bean> -->
-	<context:component-scan base-package="com.multi.cdb" />	
+	</bean>
+	<context:component-scan
+		base-package="com.multi.cdb" />
 </beans>
