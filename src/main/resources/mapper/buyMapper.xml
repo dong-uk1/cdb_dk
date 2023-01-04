@@ -15,7 +15,11 @@
 		select * from buy where by_brtc=#{by_brtc}
 	</select>
 	
-	<select id="all" resultType="BuyVO">
+	<select id='list_id' parameterType="buyVO" resultType="buyVO">
+		select * from buy where by_pbid=#{by_pbid}
+	</select>
+	
+	<select id="all" resultType="buyVO">
 		select * from buy
 	</select>
 </mapper>

@@ -23,4 +23,8 @@ public class BuyDAO {
 	public List<BuyVO> all() {
 		return my.selectList("buy.all");
 	}
+	
+	public List<BuyVO> list_id(String by_pbid){
+		return my.selectList("buy.list_id", by_pbid);
+	}
 }
