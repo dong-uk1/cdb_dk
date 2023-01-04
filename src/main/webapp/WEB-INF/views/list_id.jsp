@@ -1,4 +1,4 @@
-<%-- <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -18,10 +18,7 @@
 </script>
 </head>
 <body>
-
-
 	<jsp:include page="header.jsp" />
-	
 	
 	<div>
 		<table class="table table-hover table-fixed">
@@ -103,4 +100,4 @@
 	</div>
 	<jsp:include page="footer.jsp" />
 </body>
-</html> --%>
+</html>
