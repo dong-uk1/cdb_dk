@@ -17,7 +17,10 @@
 		resultType="borrowVO">
 		select * from borrow where br_brtc=#{br_brtc}
 	</select>
-
+	
+	<select id="list_id" parameterType="borrowVO" resultType="borrowVO">
+		select * from borrow where br_pbid=#{br_pbid}
+	</select>
 	<select id="all" resultType="BorrowVO">
 		select * from borrow;
 	</select>

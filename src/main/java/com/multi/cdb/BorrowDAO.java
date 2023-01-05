@@ -28,6 +28,10 @@ public class BorrowDAO {
 		return my.selectList("borrow.sel_list", br_brtc);
 	}
 	
+	public List<BorrowVO> list_id(String br_pbid) {
+		return my.selectList("borrow.list_id", br_pbid);
+	}
+	
 	public List<BorrowVO> all() {
 		return my.selectList("borrow.all");
 	}
