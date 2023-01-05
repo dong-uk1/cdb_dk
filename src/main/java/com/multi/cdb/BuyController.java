@@ -19,7 +19,7 @@ public class BuyController {
 	BuyDAO dao;
 	
 	// 광역시도 코드로 파라미터 요청 후 검색
-	@RequestMapping(value = "/h_sale", method= { RequestMethod.GET } )
+	@RequestMapping(value = "/h_sale", method= { RequestMethod.GET })
 	@ResponseBody
 	public Object sel_list(@RequestParam("by_brtc") String by_brtc) {
 		List<BuyVO> list = dao.sel_list(by_brtc);
