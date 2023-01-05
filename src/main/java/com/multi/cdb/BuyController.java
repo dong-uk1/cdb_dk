@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import lombok.extern.log4j.Log4j;
+
 @Controller
 //@RequestMapping("/sale")
+@Log4j
 public class BuyController {
 	
 	@Autowired
@@ -25,7 +28,8 @@ public class BuyController {
 		List<BuyVO> list = dao.sel_list(by_brtc);
 		return list;
 	}
-	
+
+	// 세부 게시물 조회
 	@RequestMapping(value = "/list_id", method = { RequestMethod.GET })
 	public Object sel_list2(@RequestParam("by_pbid") String by_pbid, Model model) {
 		List<BuyVO> list = dao.list_id(by_pbid);
@@ -33,7 +37,7 @@ public class BuyController {
 		return list;
 	}
 	
-	
+	// 전국 검색시 조회
 	@RequestMapping(value = "/all", method = { RequestMethod.GET })
 	@ResponseBody
 	public Object all() {
