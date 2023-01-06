@@ -18,7 +18,7 @@
 	$(function() {
 		$('#btn').click(function() {
 			$.ajax({
-				url : 'all',
+				url : 'rent_all',
 				type : "GET",
 				data: {},
 				success : function(data) {
@@ -26,14 +26,15 @@
 					
 					$.each(data,function(index,value) {
 						var insertTr = "";
-						const brtc = value.by_brtc;
 						insertTr += "<tr>";
-						insertTr += "<td><a href=list_id?by_pbid=" + value.by_pbid + "&by_brtc=" + value.by_brtc + ">"+ value.by_pbname + "</a></td>";
-						insertTr += "<td>" + value.by_suplyint + "</td>";
-						insertTr += "<td>" + value.by_housetype + "</td>";
-						insertTr += "<td>" + value.by_recrude + "</td>";
-						insertTr += "<td>" + value.by_winannde + "</td>";
-						insertTr += "<td>" + value.by_brtc + "</td>";
+						insertTr += "<td>" + value.br_housetype + "</td>";
+						insertTr += "<td><a href=rent_list_id?br_pbid=" + value.br_pbid + "&br_brtc=" + value.br_brtc + ">"+ value.br_pbname + "</a></td>";
+						//insertTr += "<td><a href=rent_list_id?br_pbid=" + value.br_pbid+ ">"+ value.br_pbname + "</a></td>";
+						insertTr += "<td>" + value.br_suplyint + "</td>";
+						insertTr += "<td>" + value.br_housetype + "</td>";
+						insertTr += "<td>" + value.br_recrude + "</td>";
+						insertTr += "<td>" + value.br_winannde + "</td>";
+						insertTr += "<td>" + value.br_brtc + "</td>";
 						insertTr += "</tr>";
 						$("#tbody").append(insertTr);
 					}) //each
@@ -67,9 +68,9 @@
 		
 		$("area").click(function() {
 			var id = $(this).attr('id');
-			$("#tbody").empty()	
+			$("#tbody").empty()
 			$.ajax({
-				url : 'h_sale?by_brtc=' + obj[id],
+				url : 'h_rent?br_brtc=' + obj[id],
 				type : "GET",
 				data: {},
 				success : function(data) {
@@ -77,15 +78,15 @@
 					
 					$.each(data,function(index,value) {
 						var insertTr = "";
-						const brtc = value.by_brtc;
 						insertTr += "<tr>";
-						insertTr += "<td><a href=list_id?by_pbid=" + value.by_pbid + "&by_brtc=" + value.by_brtc + ">"+ value.by_pbname + "</a></td>";
-						insertTr += "<td>" + value.by_suplyint + "</td>";
-						insertTr += "<td>" + value.by_housetype + "</td>";
-						insertTr += "<td>" + value.by_recrude + "</td>";
-						insertTr += "<td>" + value.by_winannde + "</td>";
-						insertTr += "<td>" + value.by_brtc + "</td>";
-						insertTr += "</tr>";
+						insertTr += "<td>" + value.br_housetype + "</td>";
+						insertTr += "<td><a href=rent_list_id?br_pbid=" + value.br_pbid + "&br_brtc=" + value.br_brtc + ">"+ value.br_pbname + "</a></td>";
+						insertTr += "<td>" + value.br_suplyint + "</td>";
+						insertTr += "<td>" + value.br_housetype + "</td>";
+						insertTr += "<td>" + value.br_recrude+ "</td>";
+						insertTr += "<td>" + value.br_winannde + "</td>";
+						insertTr += "<td>" + value.br_brtc + "</td>";
+						insertTr += "</tr>"; 
 						$("#tbody").append(insertTr);
 					}) //each
 				} // success
@@ -104,7 +105,7 @@ a:hover {
 }
 
 area:hover {
-	cursor: pointer;
+	cursor: pointer;	
 }
 </style>
 </head>
