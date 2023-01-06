@@ -37,8 +37,8 @@ public class BbsDAO {
 		return my.selectOne("bbs.one", bbs_Id);
 	}          
 	
-	public int recommend_count(int bbs_Id) {
-		return my.selectOne("bbs.recommend_count", bbs_Id);
+	public int recommend_count(RecommendVO vo) {
+		return my.selectOne("bbs.recommend_count", vo);
 	}    
 	public int insert(BbsVO vo) {
 		return my.insert("bbs.create", vo);

@@ -8,11 +8,13 @@
    <typeAliases>
       <typeAlias type="com.multi.cdb.bbs.BbsVO" alias="bbsVO"></typeAlias>
       <typeAlias type="com.multi.cdb.bbs.RecommendVO" alias="recommendVO"></typeAlias>
+      <typeAlias type="com.multi.cdb.bbs.ReplyVO" alias="replyVO"></typeAlias>
     <!--   <typeAlias type="com.multi.cdb.bbs.RecommendVO" alias="recommendVO"></typeAlias> -->
    </typeAliases>
    <mappers>
    <!-- SQL문 정의하는 파일들의 목록을 지정. -->
       <mapper resource="mapper/bbsMapper.xml" />
-    <!--   <mapper resource="mapper/recommendMapper.xml" /> -->
+<!--   	<mapper resource="mapper/recommendMapper.xml" />  -->
+  	<mapper resource="mapper/replyMapper.xml" /> 
    </mappers>
 </configuration>

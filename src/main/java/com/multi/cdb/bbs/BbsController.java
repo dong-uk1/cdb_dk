@@ -1,5 +1,6 @@
 package com.multi.cdb.bbs;
 
+import java.io.Console;
 import java.io.File;
 import java.util.List;
 
@@ -10,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.mysql.cj.xdevapi.Result;
 
 
 @Controller
@@ -111,14 +114,16 @@ public class BbsController {
 	}
 	
 	@RequestMapping("bbs/bbs_recommend_count")
-	public void recommend_count(int bbs_Id , Model model) {
+	public void recommend_count(RecommendVO vo , Model model) {
 		// 리뷰<--- movie(oriId, img)
 		// insert into review values (null, #{oriId}, #{content}, #{writer})
 		// 화면만들때는
 		// review + movie(oriId, img)
 
-		int count = dao.recommend_count(bbs_Id);
+		int count = dao.recommend_count(vo);
 		model.addAttribute("count", count);
+		
+		
 		// model.addAttribute("id", vo2.getBbs_Id());
 	}
 	

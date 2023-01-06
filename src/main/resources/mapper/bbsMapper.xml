@@ -5,7 +5,7 @@
 		insert into bbs values (null, #{bbs_title}, #{member_id}, #{bbs_contents}, #{bbs_img})
 	</insert>
 	<insert id="recommend_in" parameterType="recommendVO">
-		insert ignore into recommend values (null, #{bbs_Id}, #{member_id})
+		insert ignore into recommend values (#{bbs_Id}, #{member_id})
 	</insert>
 	<!-- r은 하나의 row, 전체리스트 rows  resultType을 가지고 있어야 함.-->
 	<select id="listId" parameterType="bbsVO" resultType="bbsVO">
@@ -20,7 +20,7 @@
 		select * from bbs where bbs_Id = #{bbs_Id}
 	</select>
 
-	<select id="recommend_count" parameterType="recommendVO" resultType="recommendVO">
+	<select id="recommend_count" parameterType="RecommendVO" resultType="Integer">
 		select count(*) from recommend where bbs_Id = #{bbs_Id}
 	</select>
 
