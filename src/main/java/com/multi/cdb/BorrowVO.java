@@ -1,10 +1,8 @@
 package com.multi.cdb;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
 import lombok.Data;
-
 
 @Data
 public class BorrowVO {
@@ -34,30 +32,5 @@ public class BorrowVO {
 	private Date br_beginde; // 모집 시작 일자
 	private Date br_end; // 모집 종료 일자
 	private String br_refrnc; // 문의처
-	
-	public String getBr_recrude() {
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		String str_date = simpleDateFormat.format(br_recrude);
-		return str_date;
-	}
-	
-	public String getBr_winannde() {
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		String str_date = simpleDateFormat.format(br_winannde);
-		return str_date;
-	}
-	
-	public String getBr_beginde() {
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		String str_date = simpleDateFormat.format(br_beginde);
-		return str_date;
-	}
-	
-	public String getBr_end() {
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		String str_date = simpleDateFormat.format(br_end);
-		return str_date;
-	}
-	
 	
 }
