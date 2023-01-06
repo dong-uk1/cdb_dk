@@ -13,91 +13,71 @@
 	crossorigin="anonymous">
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<script>
 
-</script>
 </head>
+<script type="text/javascript">
+	function showclose() {
+		if (document.getElementById("detail").style.display == "none") {
+			document.getElementById("detail").style.display = "show";
+		} else {
+			document.getElementById("detail").style.display == "none"
+		}
+		document.getElementById("detail").style.display = "show";
+	}
+</script>
+<style>
+ul {
+	list-style-type: none;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+</style>
 <body>
 	<jsp:include page="header.jsp" />
-	
-	<div>
-		<table class="table table-hover table-fixed">
-			<thead>
-				<tr>
-					<!-- <th scope="col">공고 id</th> -->
-					<!-- <th scope="col">주택 일련번호</th> -->
-					<!-- <th scope="col">공고 상태</th> -->
-					<th scope="col">공고명</th>
-					<th scope="col">공급 기관</th>
-					<th scope="col">주택 유형</th>
-					<th scope="col">공고일자</th>
-					<th scope="col">당첨자 발표 일자</th>
-					<!-- <th scope="col">공고 URL</th> -->
-					<th scope="col">광역시명</th>
-					<!-- <th scope="col">시군구명</th> -->
-					<!-- <th scope="col">전체 주소</th> -->
-					<!-- <th scope="col">공급 호수</th>
-				<th scope="col">최소 계약금</th>
-				<th scope="col">최소 중도금</th>
-				<th scope="col">최소 잔금</th> -->
-					<!-- <th scope="col">모집 시작 일자</th>
-				<th scope="col">모집 종료 일자</th> -->
-					<!-- <th scope="col">문의처</th> -->
-				</tr>
-			</thead>
-		</table>
-		<c:forEach var="vo" items="${list}">
-			<table class="table table-hover">
-				<!-- <thead>
-				<tr>
-					<th scope="col">공고 id</th>
-					<th scope="col">주택 일련번호</th>
-					<th scope="col">공고 상태</th>
-					<th scope="col">공고명</th>
-					<th scope="col">공급 기관</th>
-					<th scope="col">주택 유형</th>
-					<th scope="col">공고일자</th>
-					<th scope="col">당첨자 발표 일자</th>
-					<th scope="col">공고 URL</th>
-					<th scope="col">광역시명</th>
-					<th scope="col">시군구명</th>
-					<th scope="col">전체 주소</th>
-					<th scope="col">공급 호수</th>
-					<th scope="col">최소 계약금</th>
-					<th scope="col">최소 중도금</th>
-					<th scope="col">최소 잔금</th>
-					<th scope="col">모집 시작 일자</th>
-					<th scope="col">모집 종료 일자</th>
-					<th scope="col">문의처</th>
-				</tr>
-			</thead> -->
-				<tbody>
-					<tr>
-						<td>${vo.by_pbid}</td>
-					<td>${vo.by_housesn}</td>
-						<td>${vo.by_state}</td>
-						<td>${vo.by_pbname}</td>
-						<td>${vo.by_suplyint}</td>
-						<td>${vo.by_housetype}</td>
-						<td>${vo.by_recrude}</td>
-						<td>${vo.by_winannde}</td>
-						<td>${vo.by_url}</td>
-						<td>${vo.by_brtc}</td>
-						<td>${vo.by_signgu}</td>
-					<td>${vo.by_fulladdr}</td>
-					<td>${vo.by_hsmp}</td>
-					<td>${vo.by_sumsuplyco}</td>
-					<td>${vo.by_entity}</td>
-					<td>${vo.by_prtpay}</td>
-					<td>${vo.by_surlus}</td>
-						<td>${vo.by_beginde}</td>
-					<td>${vo.by_end}</td>
-						<td>${vo.by_refer}</td>
-					</tr>
-				</tbody>
-			</table>
-		</c:forEach>
-	</div>
+	<hr>
+	<h2>입주자 모집공고</h2>
+	<hr>
+	<h3>${name_id}</h3>
+	<span style="font-weight: bold; font-size: 25px;">총 <span
+		style="color: red;">${list.size()}</span> 개의 단지 정보가 있습니다.
+	</span> <br> <br>
+	<c:forEach var="vo" items="${list}">
+		<div>
+			<div id="detail">
+				<table class="table">
+					<thead style="background-color: lightgray;">
+						<tr>
+							<th scope="col">위치</th>
+							<th scope="col">단지 정보</th>
+							<th scope="col">공급 기관</th>
+							<th scope="col">주택 유형</th>
+							<th scope="col">공고 URL</th>
+							<th scope="col">총 세대수</th>
+							<th scope="col">모집 호수</th>
+						</tr>
+					</thead>
+					<tbody id='tbody'>
+						<tr>
+							<td>${vo.by_fulladdr}</td>
+							<td>${vo.by_hsmp}</td>
+							<td>${vo.by_suplyint}</td>
+							<td>${vo.by_housetype}</td>
+							<td><a href="${vo.by_url}" target="_blank">해당 모집공고 가기</a></td>
+							<td></td>
+							<td>${vo.by_sumsuplyco}</td>
+
+						</tr>
+					</tbody>
+				</table>
+<%-- 				${vo.by_suplyint} ${vo.by_housetype} ${vo.by_recrude}
+				${vo.by_winannde}
+				${vo.by_signgu} ${vo.by_fulladdr} ${vo.by_hsmp} ${vo.by_sumsuplyco}
+				${vo.by_entity} ${vo.by_prtpay} ${vo.by_surlus} ${vo.by_beginde}
+				${vo.by_end } ${vo.by_refer} --%>
+			</div>
+		</div>
+	</c:forEach>
 	<jsp:include page="footer.jsp" />
 </body>
 </html>
