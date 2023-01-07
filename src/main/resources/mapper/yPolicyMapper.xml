@@ -6,7 +6,7 @@
 	insert into YP values (#{YP_ID}, #{YP_NAME}, #{YP_PI}, #{YP_INFO}, #{YP_CATEGORY}, #{YP_SSIZE}, #{YP_CONTENT}, #{YP_RQMAGE}, #{YP_RQMJOB}, #{YP_RQMEDU}, #{YP_RQMMAJR}, #{YP_RQMFIELD}, #{YP_AI}, #{YP_PERIOD}, #{YP_PROCEDURE}, #{YP_ANM}, #{YP_URL}, NULL, NULL)
 	</insert>
 	<!-- 전체 정책 리스트(정책유형, 정책명, 기관구분) -->
-	<select id="all" parameterType="yPolicyVO">
+	<select id="all" resultType="yPolicyVO">
 	select YP_CATEGORY, YP_NAME, YP_PI from YP
 	</select>
 	<!-- 유형별 전체 정책 리스트 -->
