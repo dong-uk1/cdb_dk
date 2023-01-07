@@ -18,7 +18,7 @@ public class YPolicyVO {
 	private String YP_PROCEDURE; // 신청절차
 	private String YP_ANM; // 심사발표
 	private String YP_URL; // 사이트 링크 주소
-	private String YP_REGION; // 지역명
+	private String YP_REGION; // 지역구분
 	private int YP_VIEW; // 정책 상세 페이지 조회수
 	
 	public YPolicyVO(String yP_ID, String yP_NAME, String yP_PI, String yP_INFO, String yP_CATEGORY, String yP_SSIZE,
