@@ -45,7 +45,6 @@ public class GetYpDataMain {
 			//System.out.println(jobj1.toString());
 
 			// 배열 형태이니 반복문을 이용
-
 			JSONArray jarr = jobj1.getJSONArray("emp");
 			System.out.println(jarr.length());
 			for (int i = 1; i < jarr.length(); i++) {
