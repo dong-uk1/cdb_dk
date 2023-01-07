@@ -21,6 +21,8 @@ public class YPolicyVO {
 	private String YP_REGION; // 지역구분
 	private int YP_VIEW; // 정책 상세 페이지 조회수
 	
+	public YPolicyVO() {}; // 기본 생성자 추가
+	
 	public YPolicyVO(String yP_ID, String yP_NAME, String yP_PI, String yP_INFO, String yP_CATEGORY, String yP_SSIZE,
 			String yP_CONTENT, String yP_RQMAGE, String yP_RQMJOB, String yP_RQMEDU, String yP_RQMMAJR,
 			String yP_RQMFIELD, String yP_AI, String yP_PERIOD, String yP_PROCEDURE, String yP_ANM, String yP_URL) {
