@@ -28,8 +28,8 @@ public class YPolicyServiceImpl implements YPolicyServiceInterface {
 	}
 
 	@Override
-	public List<YPolicyVO> list() {
-		return dao.list();
+	public List<YPolicyVO> YpList() {
+		return dao.YpList();
 	}
 	
 	@Override
