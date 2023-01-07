@@ -37,7 +37,7 @@ public class YPolicyDAOImpl implements YPolicyDAOInterface {
 	}
 
 	@Override
-	public List<YPolicyVO> list() {
+	public List<YPolicyVO> YpList() {
 		return my.selectList("yp.all");
 		/*
 		 * Query query = new Query(); return mongo.find(query, YPolicyVO.class, "yp");
