@@ -11,8 +11,10 @@
 	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
 	crossorigin="anonymous">
 <!-- <link rel="stylesheet" type="text/css" href="resources/css/house.css"> -->
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+<!--<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=gog5rbcsmw"></script> -->
+
 <script>
 	// 전체 전국 지도 검색
 	$(function() {
@@ -22,19 +24,17 @@
 				type : "GET",
 				data: {},
 				success : function(data) {
-					$('#tbody').empty()
-					
+					$('#tbody').empty()	
 					$.each(data,function(index,value) {
 						var insertTr = "";
 						insertTr += "<tr>";
+						insertTr += "<td>" + value.br_suplytype + "</td>";
 						insertTr += "<td>" + value.br_housetype + "</td>";
-						insertTr += "<td><a href=rent_list_id?br_pbid=" + value.br_pbid + "&br_brtc=" + value.br_brtc + ">"+ value.br_pbname + "</a></td>";
-						//insertTr += "<td><a href=rent_list_id?br_pbid=" + value.br_pbid+ ">"+ value.br_pbname + "</a></td>";
-						insertTr += "<td>" + value.br_suplyint + "</td>";
-						insertTr += "<td>" + value.br_housetype + "</td>";
-						insertTr += "<td>" + value.br_recrude + "</td>";
-						insertTr += "<td>" + value.br_winannde + "</td>";
 						insertTr += "<td>" + value.br_brtc + "</td>";
+						insertTr += "<td><a href=rent_view?br_pbid=" + value.br_pbid + "&br_brtc=" + value.br_brtc + ">"+ value.br_pbname + "</a></td>";
+						insertTr += "<td>" + moment(value.br_recrude).format("YYYY-MM-DD") + "</td>";
+						insertTr += "<td>" + moment(value.br_winannde).format("YYYY-MM-DD") + "</td>";
+						insertTr += "<td>" + value.br_suplyint + "</td>";
 						insertTr += "</tr>";
 						$("#tbody").append(insertTr);
 					}) //each
@@ -65,12 +65,11 @@
 				15: '울산광역시',
 				16: '부산광역시'
 		}
-		
 		$("area").click(function() {
 			var id = $(this).attr('id');
 			$("#tbody").empty()
 			$.ajax({
-				url : 'h_rent?br_brtc=' + obj[id],
+				url : 'rent_city?br_brtc=' + obj[id],
 				type : "GET",
 				data: {},
 				success : function(data) {
@@ -79,13 +78,13 @@
 					$.each(data,function(index,value) {
 						var insertTr = "";
 						insertTr += "<tr>";
+						insertTr += "<td>" + value.br_suplytype + "</td>";
 						insertTr += "<td>" + value.br_housetype + "</td>";
-						insertTr += "<td><a href=rent_list_id?br_pbid=" + value.br_pbid + "&br_brtc=" + value.br_brtc + ">"+ value.br_pbname + "</a></td>";
-						insertTr += "<td>" + value.br_suplyint + "</td>";
-						insertTr += "<td>" + value.br_housetype + "</td>";
-						insertTr += "<td>" + value.br_recrude+ "</td>";
-						insertTr += "<td>" + value.br_winannde + "</td>";
 						insertTr += "<td>" + value.br_brtc + "</td>";
+						insertTr += "<td><a href=rent_view?br_pbid=" + value.br_pbid + "&br_brtc=" + value.br_brtc + ">"+ value.br_pbname + "</a></td>";
+						insertTr += "<td>"  + moment(value.br_recrude).format("YYYY-MM-DD") + "</td>";
+						insertTr += "<td>" + moment(value.br_winannde).format("YYYY-MM-DD") + "</td>";
+						insertTr += "<td>" + value.br_suplyint + "</td>";
 						insertTr += "</tr>"; 
 						$("#tbody").append(insertTr);
 					}) //each
@@ -116,11 +115,8 @@ area:hover {
 	<br>
 	
 	<div class='map-img'>
-	<img id="map" src="resources/img/map2.png" width=500 height=750 usemap='#brt_map'>
+	<img src="resources/img/map2.png" width=500 height=750 usemap='#brt_map'>
 	</div>	
-	
-	<button id='#open'>지도로 한 눈에 보기</button>
-	
 	
 	<map name="brt_map">
 	<!--  coords= x1, y1, x2, y2 -->
@@ -144,20 +140,19 @@ area:hover {
 	<br>
 	<div class="tb">
 		<table class="table table-hover table-fixed">
-			<thead>
+			<thead style="background-color: lightgray;">
 				<tr>
+					<th scope="col">공급유형</th>
+					<th scope="col">주택유형</th>
+					<th scope="col">광역시명</th>
 					<th scope="col">공고명</th>
-					<th scope="col">공급 기관</th>
-					<th scope="col">주택 유형</th>
 					<th scope="col">공고일자</th>
 					<th scope="col">당첨자 발표 일자</th>
-					<th scope="col">광역시명</th>
+					<th scope="col">공급 기관</th>
 				</tr>
 			</thead>
 			<tbody id='tbody'>
-				<tr>
 
-				</tr>
 			</tbody>
 		</table>
 	</div>
