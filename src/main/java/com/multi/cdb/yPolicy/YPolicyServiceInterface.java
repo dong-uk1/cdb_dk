@@ -7,15 +7,18 @@ public interface YPolicyServiceInterface {
 	public void insert(YPolicyVO vo);
 
 	// 전체 정책 목록
-	public List<YPolicyVO> list();
+	public List<YPolicyVO> YpList();
 
 	// 수정 
 	public void update(YPolicyVO vo);
 
 	// 상세검색
-	public YPolicyVO search(String YP_NAME, String CATEGORY, String YP_REGION);
+	public List<YPolicyVO> search(YPolicyVO vo);
 
 	
 	// 유형별 리스트
-	public List<YPolicyVO> selectOne();
+	public List<YPolicyVO> selectOne(String YP_CATEGORY);
+	
+	// 정책상세페이지
+	public List<YPolicyVO> detailOne(String YP_NAME);
 }
