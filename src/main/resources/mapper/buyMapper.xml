@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="buy">
 
+	<!-- 공공 api 가져와서 데이터 insert -->
 	<insert id="insert" parameterType="buyVO">
 		insert into buy values (null,
 		#{by_pbid}, #{by_housesn}, #{by_state}, #{by_pbname}, #{by_suplyint},
@@ -11,15 +12,26 @@
 		#{by_refer})
 	</insert>
 
-	<select id="sel_list" parameterType="buyVO" resultType="buyVO">
-		select * from buy where by_brtc=#{by_brtc}
-	</select>
-	
-	<select id='list_id' parameterType="buyVO" resultType="buyVO">
-		select * from buy where by_pbid=#{by_pbid}
-	</select>
-	
+	<!-- 전체 데이터 조회  -->	
 	<select id="all" resultType="buyVO">
 		select * from buy
 	</select>
+	
+	<!-- 광역시로 조회 -->
+	<select id="city" parameterType="string" resultType="buyVO">
+		select by_pbid, by_pbname, by_winannde, by_recrude, by_brtc, by_suplyint,
+		by_housetype from buy where by_brtc=#{by_brtc}
+	</select>
+	
+	<!-- 공고 아이디와 광역시로 조회 -->
+	<select id="detail" parameterType="Map" resultType="buyVO">
+		select *
+		from buy where by_pbid=#{by_pbid} and by_brtc=#{by_brtc}
+	</select>
+
+	<!-- 중복된 공고명 하나만 select  -->
+	<select id="show_pbname" parameterType="buyVO" resultType="string">
+		select by_pbname from buy where by_pbid=#{by_pbid} limit 1
+	</select>
+
 </mapper>

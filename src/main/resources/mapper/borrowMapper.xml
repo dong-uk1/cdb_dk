@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="borrow">
 
+	<!-- 공공 api 가져와서 데이터 insert -->
 	<insert id="insert" parameterType="borrowVO">
 		insert into borrow values
 		(null, #{br_pbid}, #{br_suplyhoco}, #{br_housesn},
@@ -12,16 +13,29 @@
 		#{br_rentgtn}, #{br_entity}, #{br_prtpay}, #{br_surlus},
 		#{br_monthrent}, #{br_beginde}, #{br_end},#{br_refrnc})
 	</insert>
-
-	<select id="sel_list" parameterType="borrowVO"
-		resultType="borrowVO">
-		select * from borrow where br_brtc=#{br_brtc}
+	
+	<!-- 전체 데이터 조회 -->
+	<select id="all" resultType="borrowVO">
+		select * from borrow
 	</select>
 	
-	<select id="list_id" parameterType="borrowVO" resultType="borrowVO">
-		select * from borrow where br_pbid=#{br_pbid}
+	<!-- 광역시로 조회 -->
+	<select id="city" parameterType="string" resultType="borrowVO">
+		select
+		br_pbid, br_suplytype, br_pbname,
+		br_winannde, br_recrude, br_brtc, br_suplyint, br_housetype from borrow where br_brtc=#{br_brtc}
 	</select>
-	<select id="all" resultType="BorrowVO">
-		select * from borrow;
+
+	<!-- 공고 아이디와 광역시로 조회 -->
+	<select id="detail" parameterType="Map" resultType="borrowVO">
+		select *
+		from borrow where br_pbid=#{br_pbid} and br_brtc=#{br_brtc}
 	</select>
+
+	<!-- 중복된 공고명 하나만 select -->
+	<select id="show_pbname" parameterType="borrowVO" resultType="string">
+		select br_pbname from borrow where br_pbid=#{br_pbid} limit 1
+	</select>
+
+	
 </mapper>
