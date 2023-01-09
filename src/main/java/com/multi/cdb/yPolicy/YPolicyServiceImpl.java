@@ -23,8 +23,8 @@ public class YPolicyServiceImpl implements YPolicyServiceInterface {
 	}
 
 	@Override
-	public YPolicyVO search(String YP_NAME, String CATEGORY, String YP_REGION) {
-		return null;
+	public List<YPolicyVO> search(YPolicyVO vo) {
+		return dao.search(vo);
 	}
 
 	@Override
@@ -33,8 +33,14 @@ public class YPolicyServiceImpl implements YPolicyServiceInterface {
 	}
 	
 	@Override
-	public List<YPolicyVO> selectOne(){
-		return dao.selectOne();
+	public List<YPolicyVO> selectOne(String YP_CATEGORY){
+		return dao.selectOne(YP_CATEGORY);
 	}
+	
+	@Override
+	public List<YPolicyVO> detailOne(String YP_NAME){
+		return dao.detailOne(YP_NAME);
+	}
+	
 
 }
