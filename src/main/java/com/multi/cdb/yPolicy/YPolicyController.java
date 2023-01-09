@@ -13,23 +13,44 @@ public class YPolicyController {
 
 	@Autowired
 	YPolicyServiceImpl yPolicyService;
-	
+		
 	@Autowired
-	GetYpDataMain getYpDataMain;
+	GetYpDataMain getYpDataMain; // api 요청 클래스
 
-	@RequestMapping("getYpData")
+	@RequestMapping("yPolicy/getYpData")
 	public void getData() {
-		getYpDataMain.main();
+		getYpDataMain.main(); // api 요청 클래스
 	}
 	
-	@RequestMapping("YpList")
+	@RequestMapping("yPolicy/YpList")
 	public void YpList(Model model) {
-		List<YPolicyVO> list = yPolicyService.list();
+		List<YPolicyVO> list = yPolicyService.YpList();
 		System.out.println(list);
 		model.addAttribute("list", list);
 	}
 	
-	@RequestMapping("selectOne")
-	public void selectOne(Model model) {
+	@RequestMapping("yPolicy/selectOne")
+	public void selectOne(String YP_CATEGORY, Model model) {
+		// System.out.println(YP_CATEGORY);
+		List<YPolicyVO> list = yPolicyService.selectOne(YP_CATEGORY);
+		System.out.println(list);
+		model.addAttribute("list", list);
 	}
+	
+	@RequestMapping("yPolicy/search")
+	public void search(YPolicyVO vo, Model model) {
+		// System.out.println(vo);
+		List<YPolicyVO> list = yPolicyService.search(vo);
+		System.out.println(list);
+		model.addAttribute("list", list);
+	}
+	
+	@RequestMapping("yPolicy/detailOne")
+	public void detailOne(String YP_NAME, Model model) {
+		System.out.println(YP_NAME);
+		List<YPolicyVO> list = yPolicyService.detailOne(YP_NAME);
+		System.out.println(list);
+		model.addAttribute("list", list);
+	}
+	
 }
