@@ -18,11 +18,6 @@ public class YPolicyServiceImpl implements YPolicyServiceInterface {
 	}
 
 	@Override
-	public void update(YPolicyVO vo) {
-		
-	}
-
-	@Override
 	public List<YPolicyVO> search(YPolicyVO vo) {
 		return dao.search(vo);
 	}
@@ -31,16 +26,20 @@ public class YPolicyServiceImpl implements YPolicyServiceInterface {
 	public List<YPolicyVO> YpList() {
 		return dao.YpList();
 	}
-	
+
 	@Override
-	public List<YPolicyVO> selectOne(String YP_CATEGORY){
+	public List<YPolicyVO> selectOne(String YP_CATEGORY) {
 		return dao.selectOne(YP_CATEGORY);
 	}
-	
+
 	@Override
-	public List<YPolicyVO> detailOne(String YP_NAME){
+	public List<YPolicyVO> detailOne(String YP_NAME) {
 		return dao.detailOne(YP_NAME);
 	}
 	
+	@Override
+	public void viewCount(YPolicyVO vo) {
+		dao.viewCount(vo);
+	}
 
 }
