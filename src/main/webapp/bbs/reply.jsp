@@ -18,6 +18,18 @@
 
 		<button type="submit" class="btn btn-secondary">댓글 작성</button>
 	</form>
-
+	<form action="reply_list">
+		<span
+			class="input-group-text">본 게시물 번호</span> <input type="text"
+			class="form-control" name="bbs_Id"><br> 
+		<button>전체 댓글</button>
+	</form>
+	
+	<form action="reply_del">
+		<span
+			class="input-group-text">삭제할 댓글 번호</span> <input type="text"
+			class="form-control" name="reply_id"><br> 
+		<button>댓글 삭제</button>
+	</form>
 </body>
 </html>

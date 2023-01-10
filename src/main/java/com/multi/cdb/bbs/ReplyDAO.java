@@ -16,4 +16,11 @@ public class ReplyDAO {
 		return my.insert("reply.create", vo);
 	}
 	
+	public List<ReplyVO> all(ReplyVO vo) { 
+		 return my.selectList("reply.all", vo); }
+	
+	public int del(ReplyVO vo) {
+		return my.delete("reply.del", vo);
+	}
+	
 }
