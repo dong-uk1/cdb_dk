@@ -35,6 +35,12 @@ public class MapperTest {
 		String br_brtc = "경기도";
 		map.put("br_pbid", br_pbid);
 		map.put("br_brtc", br_brtc);
-		log.info(dao2.list_id(map));
+		log.info(dao2.detail(map));
+	}
+	
+	@Test
+	public void test3() {
+		String br_brtc= "전라남도";
+		log.info(dao2.city(br_brtc));
 	}
 }
