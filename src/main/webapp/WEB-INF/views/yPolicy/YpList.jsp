@@ -10,7 +10,7 @@
 	<c:forEach items="${list}" var="vo">
 		<tr>
 			<td>${vo.YP_CATEGORY}</td>
-			<td><a href="detailOne?YP_NAME=${vo.YP_NAME}">${vo.YP_NAME}</a></td>
+			<td><a href="detailOne?YP_NAME=${vo.YP_NAME}&YP_VIEW=${vo.YP_VIEW}">${vo.YP_NAME}</a></td>
 			<td>${vo.YP_PI}</td>
 		</tr>
 	</c:forEach>
