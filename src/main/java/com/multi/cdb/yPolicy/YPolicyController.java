@@ -17,9 +17,10 @@ public class YPolicyController {
 	@Autowired
 	GetYpDataMain getYpDataMain; // api 요청 클래스
 
+	// api 요청 클래스
 	@RequestMapping("yPolicy/getYpData")
 	public void getData() {
-		getYpDataMain.main(); // api 요청 클래스
+		getYpDataMain.main(); 
 	}
 	
 	@RequestMapping("yPolicy/YpList")
@@ -46,11 +47,13 @@ public class YPolicyController {
 	}
 	
 	@RequestMapping("yPolicy/detailOne")
-	public void detailOne(String YP_NAME, Model model) {
-		System.out.println(YP_NAME);
-		List<YPolicyVO> list = yPolicyService.detailOne(YP_NAME);
+	public void detailOne(YPolicyVO vo, Model model) {
+		//System.out.println(YP_NAME);
+		// 상세 페이지 클릭시 조회수 증가
+		yPolicyService.viewCount(vo);
+		List<YPolicyVO> list = yPolicyService.detailOne(vo.getYP_NAME());
 		System.out.println(list);
 		model.addAttribute("list", list);
 	}
-	
+
 }
