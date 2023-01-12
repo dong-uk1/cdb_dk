@@ -2,9 +2,11 @@ package com.multi.cdb.bbs;
 
 import java.io.Console;
 import java.io.File;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.xml.ws.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -75,24 +77,29 @@ public class BbsController {
 	public void title(BbsVO vo, Model model) {
 		List<BbsVO> list = dao.list2(vo);
 		model.addAttribute("list", list);
+		
+//		return "redirect:bbs_main.jsp";
 	}
 
 
 	@RequestMapping("bbs/bbs_insert")
-	public void insert(BbsVO vo, Model model) {
+	public String insert(BbsVO vo, Model model) {
 		// 리뷰<--- movie(oriId, img)
 		// insert into review values (null, #{oriId}, #{content}, #{writer})
 		// 화면만들때는
 		// review + movie(oriId, img)
-
+	
 		int result = dao.insert(vo);
 		// BbsVO vo2 = dao.createdId();
 		String text = "게시물 작성 성공";
+			
 		if (result != 1) {
 			text = "게시물 작성 실패";
+			return "redirect:bbs_insert.jsp";
 		}
 		model.addAttribute("result", text);
 		// model.addAttribute("id", vo2.getBbs_Id());
+		return "redirect:bbs_main.jsp";
 	}
 	
 	@RequestMapping("bbs/bbs_contents")
