@@ -36,6 +36,18 @@
 	<select id="show_pbname" parameterType="borrowVO" resultType="string">
 		select br_pbname from borrow where br_pbid=#{br_pbid} limit 1
 	</select>
+	
+	<select id="count" resultType="Integer">
+		select count(*) from borrow
+	</select>
+	
+	<select id="paging" parameterType="pageVO" resultType="borrowVO">
+		select * from (
+			select row_number() over(order by br_sequence desc)	as borrow_no,
+			b.*
+			from borrow b) b2
+			where b2.borrow_no between #{start} and #{end}
+	</select>
 
 	
 </mapper>

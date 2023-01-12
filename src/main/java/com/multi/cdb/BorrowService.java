@@ -28,5 +28,13 @@ public class BorrowService {
 	public List<BorrowVO> detail(Map<String, Object> map) {
 		return dao.detail(map);
 	}
+	
+	public int count() {
+		return dao.count();
+	}
+	
+	public List<BorrowVO> selectPage(PageVO vo){
+		return dao.selectPage(vo);
+	}
 
 }

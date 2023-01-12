@@ -41,4 +41,13 @@ public class BorrowDAO {
 	public String show_pbname(String br_pbid) {
 		return my.selectOne("borrow.show_pbname", br_pbid);
 	}
+	
+	// 페이징 게시물 총 갯수 세기
+	public int count() {
+		return my.selectOne("borrow.count");
+	}
+
+	public List<BorrowVO> selectPage(PageVO vo) {
+		return my.selectList("borrow.paging", vo);
+	}
 }
