@@ -16,14 +16,12 @@
 	
 	<!-- 전체 데이터 조회 -->
 	<select id="all" resultType="borrowVO">
-		select * from borrow
+		select distinct br_pbname, br_suplytype, br_housetype,br_brtc, br_recrude, br_winannde, br_suplyint, br_pbid from borrow
 	</select>
 	
 	<!-- 광역시로 조회 -->
 	<select id="city" parameterType="string" resultType="borrowVO">
-		select
-		br_pbid, br_suplytype, br_pbname,
-		br_winannde, br_recrude, br_brtc, br_suplyint, br_housetype from borrow where br_brtc=#{br_brtc}
+		select distinct br_pbname, br_pbid, br_suplytype, br_winannde, br_recrude, br_brtc, br_suplyint, br_housetype from borrow where br_brtc=#{br_brtc}
 	</select>
 
 	<!-- 공고 아이디와 광역시로 조회 -->

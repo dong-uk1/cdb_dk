@@ -14,12 +14,12 @@
 
 	<!-- 전체 데이터 조회  -->	
 	<select id="all" resultType="buyVO">
-		select * from buy
+		select distinct by_pbname, by_housetype, by_brtc, by_pbid, by_recrude, by_winannde, by_suplyint from buy
 	</select>
 	
 	<!-- 광역시로 조회 -->
 	<select id="city" parameterType="string" resultType="buyVO">
-		select by_pbid, by_pbname, by_winannde, by_recrude, by_brtc, by_suplyint,
+		select distinct by_pbname,by_pbid, by_winannde, by_recrude, by_brtc, by_suplyint,
 		by_housetype from buy where by_brtc=#{by_brtc}
 	</select>
 	
