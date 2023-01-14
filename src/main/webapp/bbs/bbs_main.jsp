@@ -19,7 +19,7 @@
 				alert('실패.@@@')
 			}
 		})
-		$('#b1').click(function() {
+		/* $('#b1').click(function() {
 			$.ajax({
 				url : "bbs_search_title",
 				data : $("#search"),
@@ -30,7 +30,7 @@
 					alert('실패')
 				}
 			})
-		}) //b1
+		}) //b1 */
 	})
 </script>
 <body>
@@ -45,7 +45,7 @@
 </form><br>
 <form action="bbs_search_title">
 <input type="text" class="form-control input-sm" name="bbs_title" id = "search"><br>
-<button id = "b1">확인용 검색</button>
+<button id = "b1">제목 검색</button>
 <div id = "d2"></div>
 </form>
 </body>

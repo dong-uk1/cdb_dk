@@ -21,12 +21,13 @@
 	<c:forEach items="${list}" var="vo">
 	<tr>
 		<td>${vo.bbs_Id}</td>
-		<td>${vo.bbs_title}</td>
+		<td><a href="${path}/cdb/bbs/bbs_contents?bbs_Id=${vo.bbs_Id}"> ${vo.bbs_title} </a></td>
 		<td>${vo.member_id}</td>
 		<td>${vo.bbs_contents}</td>
 		<td>${vo.bbs_img}</td>
 	</tr>
 	</c:forEach>
 </table>
+<a href = "/cdb/bbs/bbs_main.jsp"><button>목록으로</button></a>
 </body>
 </html>
