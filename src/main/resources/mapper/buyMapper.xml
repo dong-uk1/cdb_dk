@@ -33,5 +33,10 @@
 	<select id="show_pbname" parameterType="buyVO" resultType="string">
 		select by_pbname from buy where by_pbid=#{by_pbid} limit 1
 	</select>
+	
+	<insert id="scrap" parameterType="scrapVO">
+		insert into scrap values (null, #{scrap_title}, #{scrap_link}, #{scrap_type}, #{scrap_member})
+	</insert>
+	
 
 </mapper>

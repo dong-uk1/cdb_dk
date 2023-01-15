@@ -36,7 +36,7 @@
 	</select>
 	
 	<select id="count" resultType="Integer">
-		select count(*) from borrow
+		select count(*)from borrow
 	</select>
 	
 	<select id="paging" parameterType="pageVO" resultType="borrowVO">
@@ -46,6 +46,10 @@
 			from borrow b) b2
 			where b2.borrow_no between #{start} and #{end}
 	</select>
-
+	
+	<!-- 스크랩 기능 -> 스크랩 테이블로 보냄 -->	
+	<insert id="scrap" parameterType="scrapVO">
+		insert into scrap values (null, #{scrap_title}, #{scrap_link}, #{scrap_type}, #{scrap_member})
+	</insert>
 	
 </mapper>
