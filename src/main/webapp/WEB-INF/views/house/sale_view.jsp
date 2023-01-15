@@ -33,7 +33,7 @@
 	<hr>
 	<h2>입주자 모집공고</h2>
 	<hr>
-	<h3>${list[0].by_pbname}</h3>
+	<h3 class="title">${list[0].by_pbname}</h3>
 	<span style="font-weight: bold; font-size: 25px;">총 <span style="color: red;">${list.size()}</span> 개의 단지 정보가 있습니다.
 	</span>
 	<br>
@@ -54,6 +54,7 @@
 				<th>최소 잔금</th>
 				<th>모집 시작 일자</th>
 				<th>당첨자 발표 일자</th>
+				<th>관심공고</th>
 			</tr>
 		</thead>
 		<c:forEach var="vo" items="${list}">
@@ -71,23 +72,38 @@
 					<td><fmt:formatNumber value="${vo.by_surlus}" type="number" /></td>
 					<td><fmt:formatDate value="${vo.by_beginde}" pattern="yyyy-MM-dd"/></td>
 					<td><fmt:formatDate value="${vo.by_winannde}" pattern="yyyy-MM-dd"/></td>
+					<td><button class="scr">스크랩</button></td>
 				</tr>
 			</tbody>
 		</c:forEach>
 	</table>
+	
 	<div id="map" style="width: 800px; height: 400px;"></div>
 	<jsp:include page="footer.jsp" />
+
 	<script>
 		$(function() {
 			$(".btn").click(function() {
+
 				$('#map').empty();
-				var val = $(this).attr('value'); //버튼 클릭시 해당 주소를 가지고 옴
-				var brtc = $("#brtc").text();
-				var signgu = $(".signgu").text();
-				console.log(val);
-				if(val===null)	 {
-					console.log(brtc);
-					console.log(signgu);
+				var str="";
+				var tdArr = new Array();
+				var btn = $(this);
+				
+				var tr = btn.parent().parent();
+				var td = tr.children();
+				
+				td.each(function(i){
+					tdArr.push(td.eq(i).text());
+				});
+			
+				var brtc = td.eq(0).text();
+				var signgu = td.eq(1).text();
+				
+				var addr = $(this).attr('value'); //버튼 클릭시 해당 주소를 가지고 옴
+
+				if(addr === '')	 {
+					addr = brtc + signgu;
 				}			
 				var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 			    mapOption = {
@@ -102,7 +118,7 @@
 			var geocoder = new kakao.maps.services.Geocoder();
 
 			// 주소로 좌표를 검색합니다
-			geocoder.addressSearch(val, function(result, status) {
+			geocoder.addressSearch(addr, function(result, status) {
 
 			    // 정상적으로 검색이 완료됐으면 
 			     if (status === kakao.maps.services.Status.OK) {
@@ -119,7 +135,28 @@
 			    } 
 			});    
 			})
-		})	
+		}) // click function	
+		
+		// 스크랩 관련 ajax
+		$(function(){
+			$('.scr').click(
+				function(){
+					var title = $('.title').text();
+					$.ajax({
+						url: "sale_scrap",
+						type: "POST",
+						dataType: "text",
+						data: {
+							title: title,
+							url: 'sale_view?by_pbid=${list[0].by_pbid}&by_brtc=${list[0].by_brtc}',
+						},
+						success: function(data){
+							console.log(data);
+						} //success
+					}) //ajax
+				} //function
+			) //click
+		}) //root function
 	</script>
 </body>
 </html>
