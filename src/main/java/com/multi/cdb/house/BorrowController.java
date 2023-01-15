@@ -1,4 +1,4 @@
-package com.multi.cdb;
+package com.multi.cdb.house;
 
 import java.util.HashMap;
 import java.util.List;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-//@RequestMapping("/rent")
+@RequestMapping("/house")
 public class BorrowController {
 	
 	@Autowired
@@ -38,6 +38,8 @@ public class BorrowController {
 		map.put("br_brtc", br_brtc);
 		List<BorrowVO> list = bo_service.detail(map);
 		model.addAttribute("list", list);
+//		model.addAttribute("br_pbid",br_pbid);
+//		model.addAttribute("br_brtc",br_brtc);
 		return list;
 	}
 		
@@ -50,7 +52,7 @@ public class BorrowController {
 	}
 	
 	@RequestMapping(value= "/pageList", method= { RequestMethod.GET} )
-	@ResponseBody
+	//@ResponseBody
 	public Object pageList(PageVO vo, Model model, @RequestParam(value = "nowPage", required=false) String nowPage, @RequestParam(value = "cntPerPage", required=false) String cntPerPage) {
 		int total = bo_service.count();
 		
@@ -64,13 +66,14 @@ public class BorrowController {
 		}
 		
 		vo = new PageVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
-		//model.addAttribute("paging", vo);
-		//model.addAttribute("viewAll", bo_service.selectPage(vo));
+		model.addAttribute("paging", vo);
+		model.addAttribute("viewAll", bo_service.selectPage(vo));
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("paging", vo);
 		map.put("viewAll", bo_service.selectPage(vo));
 		//model.addAllAttributes(map);
-		return map;
+		
+		return "rent2";
 	}
 	
 }

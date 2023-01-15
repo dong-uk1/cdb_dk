@@ -1,4 +1,4 @@
-package com.multi.cdb;
+package com.multi.cdb.house;
 
 import java.util.List;
 import java.util.Map;
@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class BorrowService {
-
 	
 	@Autowired
 	private BorrowDAO dao;

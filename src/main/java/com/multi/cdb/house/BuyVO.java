@@ -1,9 +1,13 @@
-package com.multi.cdb;
+package com.multi.cdb.house;
 
 import java.util.Date;
+
+import org.springframework.stereotype.Component;
+
 import lombok.Data;
 
 @Data
+@Component
 public class BuyVO {
 	private int by_sequence; // 일련번호 pk
 	private String by_pbid; // 공고 id

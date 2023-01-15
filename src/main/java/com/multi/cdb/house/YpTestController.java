@@ -1,4 +1,4 @@
-package com.multi.cdb;
+package com.multi.cdb.house;
 import org.json.JSONObject;
 import org.json.XML;
 import org.springframework.web.bind.annotation.GetMapping;

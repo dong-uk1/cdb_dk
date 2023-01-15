@@ -1,4 +1,4 @@
-package com.multi.cdb;
+package com.multi.cdb.house;
 
 import org.springframework.stereotype.Component;
 

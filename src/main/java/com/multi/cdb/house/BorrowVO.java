@@ -1,10 +1,13 @@
-package com.multi.cdb;
+package com.multi.cdb.house;
 import java.util.Date;
 
+import org.springframework.stereotype.Component;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@Component
 public class BorrowVO {
 	private int br_sequence; // 일련번호 pk
 	private String br_pbid; // 공고 ID

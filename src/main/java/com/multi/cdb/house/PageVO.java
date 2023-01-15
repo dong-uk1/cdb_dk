@@ -1,4 +1,4 @@
-package com.multi.cdb;
+package com.multi.cdb.house;
 
 public class PageVO {
 	private int nowPage; //현재 페이지
@@ -9,7 +9,7 @@ public class PageVO {
 	private int lastPage; // 마지막 페이지
 	private int start; //SQL 쿼리에 사용할 start
 	private int end; // SQL 쿼리에 사용할 end
-	private int cntPage = 5;
+	private int cntPage = 10;
 	
 
 	public PageVO() { } // 기본 생성자

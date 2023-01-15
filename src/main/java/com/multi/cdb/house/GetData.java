@@ -1,4 +1,4 @@
-package com.multi.cdb;
+package com.multi.cdb.house;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -138,7 +138,8 @@ public class GetData {
 				vo.setBr_beginde((Date) date.parse(beginDe));
 				vo.setBr_end((Date) date.parse(endDe));
 				vo.setBr_refrnc(refrnc);
-
+				
+				
 				dao.insert(vo);
 				
 				// 총 453개의 데이터가 넘어옴.
