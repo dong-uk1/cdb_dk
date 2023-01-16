@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,19 +34,16 @@
 	})
 </script>
 <body>
-<div id = "d1"></div>
-<!-- 제목, 글쓴이 검색 구분 가능할까? -->
-<button class="navyBtn" onClick="location.href='bbs_insert.jsp'">글 쓰기</button>
-<form method='post'  name="search">
-<span class="input-group-text">검색 : </span> 
-				<input type="text" class="form-control input-sm" name="bbs_title" ><br>
-				 <button id = "b3">제목 검색</button>
-				 <button id = "b2" onclick="javascript: form.action = 'bbs_search_name'" >유저 검색</button>
-</form><br>
-<form action="bbs_search_title">
-<input type="text" class="form-control input-sm" name="bbs_title" id = "search"><br>
-<button id = "b1">제목 검색</button>
-<div id = "d2"></div>
-</form>
+	<div id="d1"></div>
+	<!-- 제목, 글쓴이 검색 구분 가능할까? -->
+	<button class="navyBtn" onClick="location.href='bbs_insert.jsp'">글
+		쓰기</button>
+
+	<form action="bbs_search_title">
+		<input type="text" class="form-control input-sm" name="bbs_title"
+			id="search"><br>
+		<button id="b1">제목 검색</button>
+		<div id="d2"></div>
+	</form>
 </body>
 </html>
