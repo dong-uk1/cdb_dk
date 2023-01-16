@@ -1,0 +1,31 @@
+@charset "UTF-8";
+.header{
+	display: grid;
+  	place-items: center;
+}
+.find{
+	font-family: "굴림체";
+	font-size: 20px;
+	font-weight: bold;
+	display: grid;
+  	place-items: center;
+}
+input {
+  width:400px;
+  height:20px;
+  font-size:16px;
+}
+.button_CRUD{
+	background: #3498DB;
+	color: white;
+	font-size: 40px;
+	width: 250px;
+	height: 80px;
+}
+.ex{
+text-align: center;
+}
+#loginCheck{
+	font-size: 12px;
+	color: red;
+}

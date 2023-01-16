@@ -1,0 +1,49 @@
+@charset "UTF-8";
+button{
+	background: #3498DB;
+	color: white;
+}
+input {
+  width:400px;
+  height:20px;
+  font-size:16px;
+}
+select {
+  width:400px;
+  height:20px;
+  font-size:16px;
+}
+.join{
+	font-family: "굴림체";
+	font-size: 20px;
+	font-weight: bold;
+	display: grid;
+  	place-items: center;
+}
+.header{
+	display: grid;
+  	place-items: center;
+}
+#idinput{
+	font-size: 12px;
+	color: red;
+}
+#pwdinput{
+	font-size: 12px;
+	color: red;
+}
+#pwdcheck{
+	font-size: 12px;
+	color: red;
+}
+#joincomplete {
+	background: #3498DB;
+	color: white;
+	font-size: 40px;
+	width: 250px;
+	height: 80px;
+}
+#joinjoin {
+	display: grid;
+	place-items: center;
+}
