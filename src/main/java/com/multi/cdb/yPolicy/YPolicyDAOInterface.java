@@ -10,7 +10,7 @@ public interface YPolicyDAOInterface {
 	public List<YPolicyVO> search(YPolicyVO vo);
 
 	// 전체 리스트
-	public List<YPolicyVO> YpList();
+	public List<YPolicyVO> YpList(PageVO vo);
 
 	// 유형별 리스트
 	public List<YPolicyVO> selectOne(String YP_CATEGORY);
