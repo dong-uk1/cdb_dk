@@ -6,6 +6,7 @@
 
    <typeAliases>
       <typeAlias type="com.multi.cdb.yPolicy.YPolicyVO" alias="yPolicyVO"></typeAlias>
+      <typeAlias type="com.multi.cdb.yPolicy.PageVO" alias="pageVO"></typeAlias>
    </typeAliases>
    <mappers>
       <mapper resource="mapper/yPolicyMapper.xml" />
