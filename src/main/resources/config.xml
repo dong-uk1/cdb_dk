@@ -4,11 +4,14 @@
  "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
+    <typeAlias type="com.multi.cdb.yPolicy.YPolicyVO" alias="yPolicyVO"></typeAlias>
+    <typeAlias type="com.multi.cdb.yPolicy.PageVO" alias="pageVO"></typeAlias>
 		<typeAlias type="com.multi.cdb.scrap.ScrapVO" alias = "scrapVO"></typeAlias>
 		<typeAlias type="com.multi.cdb.member.MemberVO" alias = "memberVO"></typeAlias>
 	</typeAliases>
 	
 	<mappers>
+    <mapper resource="mapper/yPolicyMapper.xml" />
 		<mapper resource="mapper/scrapMapper.xml" />
 		<mapper resource="mapper/memberMapper.xml" />
 	</mappers>
