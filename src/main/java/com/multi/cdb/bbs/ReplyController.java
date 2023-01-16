@@ -14,6 +14,8 @@ public class ReplyController {
 	@Autowired
 	ReplyDAO dao;
 	
+	private ReplyService replyService;
+	
 	@RequestMapping("bbs/reply_insert")
 	public void insert(ReplyVO vo, Model model) {
 		// 리뷰<--- movie(oriId, img)
@@ -32,9 +34,10 @@ public class ReplyController {
 	}
 	
 	@RequestMapping("bbs/reply_list")
-	public void list(ReplyVO vo ,Model model) {
+	public String list(ReplyVO vo ) {
 		List<ReplyVO> list = dao.all(vo);
-		model.addAttribute("list", list);
+		
+		return "redirect:/bbs/bbs_contents?bbs_Id="+vo.getBbs_Id();
 		
 	}
 	

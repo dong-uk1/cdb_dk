@@ -18,23 +18,26 @@ import com.mysql.cj.xdevapi.Result;
 
 
 @Controller
-public class BbsController {
+public class BbsController implements stockDAOinter {
 
 	@Autowired
 	BbsDAO dao;
 
+	@Override
 	@RequestMapping("bbs/bbs_all")
 	public void all(Model model) {
 		List<BbsVO> list = dao.all();
 		model.addAttribute("list", list);
 	}
 
+	@Override
 	@RequestMapping("bbs/bbs_search_name")
 	public void name(BbsVO vo, Model model) {
 		List<BbsVO> list = dao.list(vo);
 		model.addAttribute("list", list);
 	}
 
+	@Override
 	@RequestMapping("bbs/bbs_search_title")
 	public void title(BbsVO vo, Model model) {
 		List<BbsVO> list = dao.list2(vo);
@@ -44,6 +47,7 @@ public class BbsController {
 	}
 
 
+	@Override
 	@RequestMapping("bbs/bbs_insert")
 	public String insert(BbsVO vo, Model model) {
 	
@@ -57,7 +61,7 @@ public class BbsController {
 		}
 		model.addAttribute("result", text);
 		// model.addAttribute("id", vo2.getBbs_Id());
-		return "redirect:bbs_main.jsp";
+		return "redirect:bbs/bbs_main.jsp";
 	}
 	
 	@RequestMapping("bbs/bbs_contents")
@@ -66,6 +70,7 @@ public class BbsController {
 		model.addAttribute("vo",vo);
 	}
 
+	@Override
 	@RequestMapping("bbs/bbs_recommend")
 	public void insert2(RecommendVO vo, Model model) {
 
@@ -74,6 +79,7 @@ public class BbsController {
 		// model.addAttribute("id", vo2.getBbs_Id());
 	}
 	
+	@Override
 	@RequestMapping("bbs/bbs_recommend_count")
 	public void recommend_count(RecommendVO vo , Model model) {
 
@@ -85,6 +91,7 @@ public class BbsController {
 		// model.addAttribute("id", vo2.getBbs_Id());
 	}
 	
+	@Override
 	@RequestMapping("bbsDel")
 	public void delete(BbsVO vo, Model model) {
 		int result = dao.del(vo);
