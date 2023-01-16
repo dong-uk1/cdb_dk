@@ -86,25 +86,29 @@
 			$(".btn").click(function() {
 
 				$('#map').empty();
-				var str="";
-				var tdArr = new Array();
+
+				//var tdArr = new Array();
 				var btn = $(this);
 				
 				var tr = btn.parent().parent();
 				var td = tr.children();
 				
-				td.each(function(i){
+				/* td.each(function(i){
 					tdArr.push(td.eq(i).text());
-				});
+				}); */
 			
-				var brtc = td.eq(0).text();
-				var signgu = td.eq(1).text();
-				
 				var addr = $(this).attr('value'); //버튼 클릭시 해당 주소를 가지고 옴
 
+				// 광역시
+				var brtc = td.eq(0).text();
+				// 시군구
+				var signgu = td.eq(1).text();
+			 	
+				// 위치 정보가 공백일 경우 광역시 + 시군구로 위치 매핑
 				if(addr === '')	 {
 					addr = brtc + signgu;
 				}			
+
 				var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 			    mapOption = {
 			        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
@@ -145,13 +149,22 @@
 					$.ajax({
 						url: "sale_scrap",
 						type: "POST",
-						dataType: "text",
+						dataType: "json",
 						data: {
 							title: title,
+							scrap_member: "hyeonji",
 							url: 'sale_view?by_pbid=${list[0].by_pbid}&by_brtc=${list[0].by_brtc}',
 						},
 						success: function(data){
 							console.log(data);
+							
+							if(data == 0){
+								alert("스크랩 완료");
+								location.reload();
+							} else {
+								alert("스크랩 취소");
+								location.reload();
+							}
 						} //success
 					}) //ajax
 				} //function

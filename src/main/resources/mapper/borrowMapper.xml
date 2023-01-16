@@ -51,5 +51,15 @@
 	<insert id="scrap" parameterType="scrapVO">
 		insert into scrap values (null, #{scrap_title}, #{scrap_link}, #{scrap_type}, #{scrap_member})
 	</insert>
+		
+	<!-- 스크랩 취소 -->
+	<delete id="scrapDelete" parameterType="scrapVO">
+		delete from scrap where scrap_member = #{scrap_member} and scrap_link = #{scrap_link}
+	</delete>	
+
+	<!-- 중복 방지를 위해 스크랩 개수 세기 -->	
+	<select id="scrapCount" parameterType="scrapVO" resultType="int">
+		select count(*) from scrap where scrap_member = #{scrap_member} and scrap_link = #{scrap_link}
+	</select>	
 	
 </mapper>

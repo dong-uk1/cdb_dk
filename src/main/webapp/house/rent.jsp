@@ -194,7 +194,7 @@
 					globalData = data;
 					displayData(1, dataPerPage, data); */
 				
-					paging(totalData, dataPerPage, pageCount, 1);
+					/* paging(totalData, dataPerPage, pageCount, 1); */
 					
 					$.each(data,function(index,value) {
 						var insertTr = "";

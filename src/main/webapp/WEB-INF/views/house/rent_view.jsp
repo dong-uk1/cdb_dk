@@ -95,11 +95,12 @@
 		$(".btn").click(function(){
 
 			$('#map').empty();
-			var str= "";
-			var tdArr = new Array(); // 배열 선언
+
+			// var tdArr = new Array(); // 배열 선언
 			var btn = $(this);
 			
-			// 현재 클릭된 Row(<tr>)
+			// btn.parent(): btn의 부모는 <td>
+			// btn.parent().parent(): <td>의 부모는 <tr>
 			var tr = btn.parent().parent();
 			var td = tr.children();
 			
@@ -108,30 +109,30 @@
 			
 			
 			// 반복문을 이용해서 배열에 값을 담아 사용할 수도 있음.
-			td.each(function(i){
+			/* td.each(function(i){
 				tdArr.push(td.eq(i).text());
-			});
+			}); */
 
 			//console.log("배열에 담긴 값: " + tdArr)	;
 			
 			//td.eq(index)를 통해 값을 가져올 수 있음.
-			var signgu = td.eq(0).text();
 			
 			// map이 들어갈 div를 비우고
 			
 			// 클릭한 버튼의 해당 주소를 가지고 옴
 			var addr = $(this).attr('value');
-			var brtc = "${list[0].br_brtc}";
-			console.log("addr:" + addr);
-			console.log("brtc:" + brtc);
-			console.log("signgu:" + signgu);	
-			var id = "${list[0].br_pbid}";
-			console.log("id: " + id);
 			
-			if (addr === '') { // 위치 정보가 공백일 경우 광역시 + 시군구로 위치 매핑
+			// 광역시
+			var brtc = "${list[0].br_brtc}";
+			// 시군구
+			var signgu = td.eq(0).text();
+			
+			// 위치 정보가 공백일 경우 광역시 + 시군구로 위치 매핑
+			if (addr === '') {
 				//addr = brtc + signgu;
 				addr = brtc + signgu;
 			}
+			
 			var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 			mapOption = {
 				center : new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
@@ -167,21 +168,35 @@
 			
 		}) //click function
 		
+		var req = {
+				"scrap_title": "${list[0].br_pbname}",
+				"scrap_link" : 'rent_view?br_pbid=${list[0].br_pbid}&br_brtc=${list[0].br_brtc}',
+				"scrap_type" : "rent",
+				"scrap_member": "gildong"
+			};
+		
 		// 스크랩 관련 ajax
 		$(function(){
 			$('.scr').click(
 				function(){
-					var title = $('.title').text();
+					//var title = $('.title').text();
+					
 					$.ajax({
 						url: "rent_scrap",
 						type: "POST",
-						dataType: "text",
-						data: {
-							title: title,
-							url: 'rent_view?br_pbid=${list[0].br_pbid}&br_brtc=${list[0].br_brtc}',
-						},
+						dataType: "json",
+						contentType : 'application/json',
+						data: JSON.stringify(req),
 						success: function(data) {
 							console.log(data);
+							
+							if(data == 0) {
+								alert("스크랩 완료");
+								location.reload();
+							} else {
+								alert("스크랩 취소");
+								location.reload();
+							}
 						} //success
 						
 					}) //ajax

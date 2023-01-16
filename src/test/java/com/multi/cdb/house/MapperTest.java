@@ -1,4 +1,4 @@
-package com.multi.cdb;
+package com.multi.cdb.house;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,10 +18,10 @@ import lombok.extern.log4j.Log4j;
 public class MapperTest {
 	
 	@Setter(onMethod_ = @Autowired)
-	private BuyDAO dao;
+	private BuyDAOInterface dao;
 	
 	@Setter(onMethod_ = @Autowired)
-	private BorrowDAO dao2;
+	private BorrowDAOInterface dao2;
 	
 	@Test
 	public void test() {

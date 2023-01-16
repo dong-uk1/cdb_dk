@@ -1,4 +1,4 @@
-package com.multi.cdb;
+package com.multi.cdb.house;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -19,7 +19,7 @@ import lombok.extern.log4j.Log4j;
 public class ServiceTest {
 
 	@Autowired
-	private BorrowService service;
+	private BorrowServiceInterface service;
 
 	@Autowired
 	private BuyService service2;
@@ -27,7 +27,7 @@ public class ServiceTest {
 	BorrowVO borrow = new BorrowVO();
 
 	/*
-	 * 여기는 buy test
+	 * 여기는 borrow test
 	 */
 	@Test
 	// service 제대로 주입 가능한지 테스트
@@ -38,7 +38,7 @@ public class ServiceTest {
 
 	@Test
 	public void borrow_all() {
-		service.all().forEach(borrow -> log.info(borrow));
+//		service.all().forEach(borrow -> log.info(borrow));
 	}
 
 	@Test
