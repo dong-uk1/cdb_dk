@@ -8,11 +8,16 @@
     <typeAlias type="com.multi.cdb.yPolicy.PageVO" alias="pageVO"></typeAlias>
 		<typeAlias type="com.multi.cdb.scrap.ScrapVO" alias = "scrapVO"></typeAlias>
 		<typeAlias type="com.multi.cdb.member.MemberVO" alias = "memberVO"></typeAlias>
+		<typeAlias type="com.multi.cdb.house.BorrowVO" alias="borrowVO" />
+		<typeAlias type="com.multi.cdb.house.BuyVO" alias="buyVO" />
+		<typeAlias type="com.multi.cdb.house.PageVO" alias="pageVO" />
 	</typeAliases>
 	
 	<mappers>
     <mapper resource="mapper/yPolicyMapper.xml" />
 		<mapper resource="mapper/scrapMapper.xml" />
 		<mapper resource="mapper/memberMapper.xml" />
+		<mapper resource="mapper/borrowMapper.xml" />
+		<mapper resource="mapper/buyMapper.xml" />
 	</mappers>
 </configuration>
