@@ -6,6 +6,7 @@
 		<tr>
 			<td>정책아이디</td>
 			<td>${vo.YP_ID}</td>
+			<td><button>스크랩</button></td>
 		</tr>
 		<tr>
 			<td>정책명</td>
