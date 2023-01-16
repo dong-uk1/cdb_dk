@@ -7,7 +7,7 @@ public interface YPolicyServiceInterface {
 	public void insert(YPolicyVO vo);
 
 	// 전체 정책 목록
-	public List<YPolicyVO> YpList();
+	public List<YPolicyVO> YpList(PageVO vo);
 
 	// 상세검색
 	public List<YPolicyVO> search(YPolicyVO vo);
