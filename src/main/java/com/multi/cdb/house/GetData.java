@@ -25,10 +25,10 @@ import lombok.extern.log4j.Log4j;
 public class GetData {
 
 	@Autowired
-	BorrowDAO dao;
+	BorrowDAOInterface dao;
 
 	@Autowired
-	BuyDAO dao2;
+	BuyDAOInterface dao2;
 
 	@GetMapping("/borrow")
 	public String getBorrowData(BorrowVO vo) {

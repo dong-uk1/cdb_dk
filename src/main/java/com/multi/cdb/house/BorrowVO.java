@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Component
+//@Component
 public class BorrowVO {
 	private int br_sequence; // 일련번호 pk
 	private String br_pbid; // 공고 ID

@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class BuyService {
+public class BuyService implements BuyServiceInterface {
 	
 	@Autowired
-	private BuyDAO dao;
+	private BuyDAOInterface dao;
 	
 	public void insert(BuyVO vo) {
 		dao.insert(vo);

@@ -18,8 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class BorrowController {
 	
 	@Autowired
-	BorrowService bo_service;
-	
+	BorrowServiceInterface bo_service;
 	
 	// 쿼리 파라미터를 광역시로 요청함.
 	@RequestMapping(value = "/rent_city", method = { RequestMethod.GET })
