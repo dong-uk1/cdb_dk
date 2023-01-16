@@ -23,9 +23,10 @@ public class YPolicyServiceImpl implements YPolicyServiceInterface {
 	}
 
 	@Override
-	public List<YPolicyVO> YpList() {
-		return dao.YpList();
+	public List<YPolicyVO> YpList(PageVO vo) {
+		return dao.YpList(vo);
 	}
+
 
 	@Override
 	public List<YPolicyVO> selectOne(String YP_CATEGORY) {
