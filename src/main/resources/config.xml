@@ -3,17 +3,20 @@
  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-
-	<!-- SQL문 정의할 때 VO표현을 간단하게 하고 싶은 경우. 별명을 지어서 사용 -->
 	<typeAliases>
+    <typeAlias type="com.multi.cdb.yPolicy.YPolicyVO" alias="yPolicyVO"></typeAlias>
+    <typeAlias type="com.multi.cdb.yPolicy.PageVO" alias="pageVO"></typeAlias>
+		<typeAlias type="com.multi.cdb.scrap.ScrapVO" alias = "scrapVO"></typeAlias>
+		<typeAlias type="com.multi.cdb.member.MemberVO" alias = "memberVO"></typeAlias>
 		<typeAlias type="com.multi.cdb.house.BorrowVO" alias="borrowVO" />
 		<typeAlias type="com.multi.cdb.house.BuyVO" alias="buyVO" />
 		<typeAlias type="com.multi.cdb.house.PageVO" alias="pageVO" />
-		<typeAlias type="com.multi.cdb.house.ScrapVO" alias="scrapVO" />
 	</typeAliases>
-
+	
 	<mappers>
-		<!-- SQL문 정의하는 파일들의 목록을 지정. -->
+    <mapper resource="mapper/yPolicyMapper.xml" />
+		<mapper resource="mapper/scrapMapper.xml" />
+		<mapper resource="mapper/memberMapper.xml" />
 		<mapper resource="mapper/borrowMapper.xml" />
 		<mapper resource="mapper/buyMapper.xml" />
 	</mappers>

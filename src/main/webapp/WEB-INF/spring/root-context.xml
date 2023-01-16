@@ -34,5 +34,5 @@
 		<constructor-arg ref="config" />
 	</bean>
 	<context:component-scan
-		base-package="com.multi.cdb.house" />
+		base-package="com.multi.cdb.bbs, com.multi.cdb.member, com.multi.cdb.scrap, com.multi.cdb.yPolicy" />
 </beans>
