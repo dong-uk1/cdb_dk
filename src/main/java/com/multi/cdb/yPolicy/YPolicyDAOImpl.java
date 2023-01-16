@@ -33,9 +33,9 @@ public class YPolicyDAOImpl implements YPolicyDAOInterface {
 	}
 
 	@Override
-	public List<YPolicyVO> YpList() {
+	public List<YPolicyVO> YpList(PageVO vo) {
 		// select YP_CATEGORY, YP_NAME, YP_PI from YP
-		return my.selectList("yp.all");
+		return my.selectList("yp.all", vo);
 		/*
 		 * mongoDB로 실행해봄 Query query = new Query(); return mongo.find(query,
 		 * YPolicyVO.class, "yp");
