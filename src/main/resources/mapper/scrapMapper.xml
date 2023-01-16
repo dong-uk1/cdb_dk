@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="scrap">
+
+	<!-- 멤버 아이디 보고 스크랩 테이블에서 데이터 타입별로 가져오는 sql문 -->
+	<select id="scraplist_Policy" parameterType="scrapVO" resultType="scrapVO"><!-- 정책 -->
+		select scrap_num, scrap_title, scrap_link from scrap 
+		where scrap_member = #{scrap_member} and scrap_type = "Policy";
+	</select>
+	
+	<select id="scraplist_Com" parameterType="scrapVO" resultType="scrapVO"><!-- 커뮤니티 -->
+		select scrap_num, scrap_title, scrap_link from scrap 
+		where scrap_member = #{scrap_member} and scrap_type = "Com";
+	</select>
+	
+	<select id="scraplist_Home" parameterType="scrapVO" resultType="scrapVO"><!-- 임대주택 -->
+		select scrap_num, scrap_title, scrap_link from scrap 
+		where scrap_member = #{scrap_member} and scrap_type = "Home";
+	</select>
+	
+	<select id="scraplist_Job" parameterType="scrapVO" resultType="scrapVO"><!-- 일자리 -->
+		select scrap_num, scrap_title, scrap_link from scrap 
+		where scrap_member = "hongil2" and scrap_type = "Job";
+	</select>
+	
+	<!-- 스크랩 보내주는 기능 -->
+	<insert id="scrap" parameterType="scrapVO"><!-- scrap_type은 "Policy", "Com", "Home", "Job"으로 해주세요 -->
+		insert into scrap values 
+		(null, #{scrap_title}, #{scrap_link}, #{scrap_type}, #{scrap_member});
+	</insert>
+	
+	
+	
+
+</mapper>
