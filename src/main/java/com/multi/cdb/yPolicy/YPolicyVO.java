@@ -18,32 +18,9 @@ public class YPolicyVO {
 	private String YP_PROCEDURE; // 신청절차
 	private String YP_ANM; // 심사발표
 	private String YP_URL; // 사이트 링크 주소
-	private String YP_REGION; // 지역구분
+	private String YP_REGION; // 지역명
 	private int YP_VIEW; // 정책 상세 페이지 조회수
 	
-	public YPolicyVO() {}; // 기본 생성자 추가
-	
-	public YPolicyVO(String yP_ID, String yP_NAME, String yP_PI, String yP_INFO, String yP_CATEGORY, String yP_SSIZE,
-			String yP_CONTENT, String yP_RQMAGE, String yP_RQMJOB, String yP_RQMEDU, String yP_RQMMAJR,
-			String yP_RQMFIELD, String yP_AI, String yP_PERIOD, String yP_PROCEDURE, String yP_ANM, String yP_URL) {
-		YP_ID = yP_ID;
-		YP_NAME = yP_NAME;
-		YP_PI = yP_PI;
-		YP_INFO = yP_INFO;
-		YP_CATEGORY = yP_CATEGORY;
-		YP_SSIZE = yP_SSIZE;
-		YP_CONTENT = yP_CONTENT;
-		YP_RQMAGE = yP_RQMAGE;
-		YP_RQMJOB = yP_RQMJOB;
-		YP_RQMEDU = yP_RQMEDU;
-		YP_RQMMAJR = yP_RQMMAJR;
-		YP_RQMFIELD = yP_RQMFIELD;
-		YP_AI = yP_AI;
-		YP_PERIOD = yP_PERIOD;
-		YP_PROCEDURE = yP_PROCEDURE;
-		YP_ANM = yP_ANM;
-		YP_URL = yP_URL;
-	}
 	
 	public String getYP_ID() {
 		return YP_ID;
@@ -150,18 +127,18 @@ public class YPolicyVO {
 	public String getYP_REGION() {
 		return YP_REGION;
 	}
-
+	
 	public void setYP_REGION(String yP_REGION) {
 		YP_REGION = yP_REGION;
 	}
-
+	
 	public int getYP_VIEW() {
 		return YP_VIEW;
 	}
 	public void setYP_VIEW(int yP_VIEW) {
 		YP_VIEW = yP_VIEW;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "YPolicyVO [YP_ID=" + YP_ID + ", YP_NAME=" + YP_NAME + ", YP_PI=" + YP_PI + ", YP_INFO=" + YP_INFO

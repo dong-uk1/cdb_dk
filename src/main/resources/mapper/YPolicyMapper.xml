@@ -1,3 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.multi.cdb.bbs.newsMapper"></mapper>
+<mapper namespace="YPolicy">
+	<select id = "list"	resultType="YPolicyVO">
+	select * from yp order by YP_VIEW desc limit 10
+	</select>
+</mapper>

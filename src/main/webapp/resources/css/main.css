@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+body {margin:0; text-align:center;}
+#header { background-color:#FFE400;  }
+
+
+#nav {height:150px; line-height:50px; }
+#content_news { background-color:#B2EBF4; float:left; width:50%; height:800px; line-height:200px;}
+#content_calendar {  float:left; width:50%; height:800px; line-height:200px;}
+#content-policy { background-color:#FFC19E; float:left; width:100%; height:500px; line-height:200px;}
+#footer { background-color:#F361DC; clear:both; height:50px; line-height:50px;}
+.tab {
+    padding: 5px 10px;
+    display: inline-block;
+    font-size: 1.4rem;
+    border:1px solid #aaa;
+    background: #ccc linear-gradient(#ccc, #eee);
+    color: #666;
+    border-radius: 7px 7px 0 0;
+    margin-bottom: 5px;
+}
+.board-act .tab{
+    background: #fff;
+    border: 1px solid #ed552f;
+    color: #ed552f;
+    border-bottom: #fff;
+}
