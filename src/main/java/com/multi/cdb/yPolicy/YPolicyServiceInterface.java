@@ -6,18 +6,15 @@ public interface YPolicyServiceInterface {
 	// 삽입
 	public void insert(YPolicyVO vo);
 
-	// 전체 정책 목록
-	public List<YPolicyVO> YpList(PageVO vo);
+// 수정 
+
+	public void update(YPolicyVO vo);
 
 	// 상세검색
-	public List<YPolicyVO> search(YPolicyVO vo);
+	//public YPolicyVO one(String YP_NAME, String CATEGORY, StringYP_REGION);
 
-	// 유형별 리스트
-	public List<YPolicyVO> selectOne(String YP_CATEGORY);
+ // 전체 리스트 
 
-	// 정책상세페이지
-	public List<YPolicyVO> detailOne(String YP_NAME);
 
-	// 조회수 증가
-	public void viewCount(YPolicyVO vo);
+	public List<YPolicyVO> list();
 }
