@@ -8,9 +8,18 @@
       <typeAlias type="com.multi.cdb.yPolicy.YPolicyVO" alias="yPolicyVO"></typeAlias>
       <typeAlias type="com.multi.cdb.job.JobVO" alias="jobVO"></typeAlias>
       <typeAlias type="com.multi.cdb.job.PageVO" alias="pageVO"></typeAlias>
+      <typeAlias type="com.multi.cdb.bbs.BbsVO" alias="BbsVO"></typeAlias>
+      <typeAlias type="com.multi.cdb.bbs.ReplyVO" alias="ReplyVO"></typeAlias>
+      <typeAlias type="com.multi.cdb.bbs.NewsVO" alias="NewsVO"></typeAlias>
    </typeAliases>
+   
    <mappers>
       <mapper resource="mapper/yPolicyMapper.xml" />
-      <mapper resource="mapper/jobMapper.xml" /> 
+      <mapper resource="mapper/jobMapper.xml" />
+      <mapper resource="mapper/bbsMapper.xml" />
+		  <mapper resource="mapper/replyMapper.xml" />
+		  <mapper resource="mapper/newsMapper.xml" />
+		  <mapper resource="mapper/filterMapper.xml" />
    </mappers>
 </configuration>
+

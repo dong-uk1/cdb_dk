@@ -1,25 +1,28 @@
 package com.multi.cdb.yPolicy;
 
 public class YPolicyVO {
-	private String YP_ID; // �젙梨낆븘�씠�뵒
-	private String YP_NAME; // �젙梨낅챸
-	private String YP_PI; // 湲곌� 諛� 吏��옄泥대챸
-	private String YP_INFO; // �젙梨낆냼媛�
-	private String YP_CATEGORY; // �젙梨낆쑀�삎
-	private String YP_SSIZE; // 吏��썝洹쒕え
-	private String YP_CONTENT; // 吏��썝�궡�슜
-	private String YP_RQMAGE; // 李몄뿬�슂嫄� - �뿰�졊
-	private String YP_RQMJOB; // 李몄뿬�슂嫄� - 痍⑥뾽�긽�깭
-	private String YP_RQMEDU; // 李몄뿬�슂嫄� - �븰�젰
-	private String YP_RQMMAJR; // 李몄뿬�슂嫄� - �쟾怨�
-	private String YP_RQMFIELD; // 李몄뿬�슂嫄� - �듅�솕遺꾩빞
-	private String YP_AI; // �떊泥�湲곌�
-	private String YP_PERIOD; // �떊泥�湲곌컙
-	private String YP_PROCEDURE; // �떊泥��젅李�
-	private String YP_ANM; // �떖�궗諛쒗몴
-	private String YP_URL; // �궗�씠�듃 留곹겕 二쇱냼
-	private String YP_REGION; // 吏��뿭紐�
-	private int YP_VIEW; // �젙梨� �긽�꽭 �럹�씠吏� 議고쉶�닔
+
+	private String YP_ID; // 정책아이디
+	private String YP_NAME; // 정책명
+	private String YP_PI; // 기관 및 지자체 구분
+	private String YP_INFO; // 정책소개
+	private String YP_CATEGORY; // 정책유형
+	private String YP_SSIZE; // 지원규모
+	private String YP_CONTENT; // 지원내용
+	private String YP_RQMAGE; // 참여요건 - 연령
+	private String YP_RQMJOB; // 참여요건 - 취업상태
+	private String YP_RQMEDU; // 참여요건 - 학력
+	private String YP_RQMMAJR; // 참여요건 - 전공
+	private String YP_RQMFIELD; // 참여요건 - 특화분야
+	private String YP_AI; // 신청기관
+	private String YP_PERIOD; // 신청기간
+	private String YP_PROCEDURE; // 신청절차
+	private String YP_ANM; // 심사발표
+	private String YP_URL; // 사이트 링크 주소
+	private String YP_REGION; // 지역명
+	private int YP_VIEW; // 정책 상세 페이지 조회수
+	
+  public YPolicyVO() {}; // 기본 생성자 추가
 	
 	public YPolicyVO(String yP_ID, String yP_NAME, String yP_PI, String yP_INFO, String yP_CATEGORY, String yP_SSIZE,
 			String yP_CONTENT, String yP_RQMAGE, String yP_RQMJOB, String yP_RQMEDU, String yP_RQMMAJR,
@@ -148,18 +151,18 @@ public class YPolicyVO {
 	public String getYP_REGION() {
 		return YP_REGION;
 	}
-
+	
 	public void setYP_REGION(String yP_REGION) {
 		YP_REGION = yP_REGION;
 	}
-
+	
 	public int getYP_VIEW() {
 		return YP_VIEW;
 	}
 	public void setYP_VIEW(int yP_VIEW) {
 		YP_VIEW = yP_VIEW;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "YPolicyVO [YP_ID=" + YP_ID + ", YP_NAME=" + YP_NAME + ", YP_PI=" + YP_PI + ", YP_INFO=" + YP_INFO

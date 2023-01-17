@@ -1,3 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="mapper.bbsMapper"></mapper>
+<mapper namespace="bbs">
+	<select id="list" resultType="BbsVO">
+		-- subquery, join
+		select * from bbs,
+		(select count(bbs_id) as c, bbs_Id
+		from recommend
+		group by bbs_Id
+		order by c desc
+		)bbs_id_table
+		where bbs.bbs_Id = bbs_id_table.bbs_Id
+		order by
+		bbs_id_table.c desc
+		LIMIT 5 <!-- 상위5개만 출력 -->
+	</select>
+	
+	<select id="one" parameterType="BbsVO" 
+					resultType="BbsVO">
+		SELECT * FROM bbs 
+		where bbs_contents like '%'||#{filtertext}||'%'
+		
+		
+	</select>
+
+</mapper>
+
