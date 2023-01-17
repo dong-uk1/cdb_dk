@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="job">
+	<insert id="insert" parameterType="jobVO">
+		insert into recruit values (
+		#{job_wantedAuthNo},
+		#{job_company}, #{job_title}, #{job_salTpNm},
+		#{job_sal}, #{job_minSal}, #{job_maxSal},
+		#{job_region},
+		#{job_holidayTpNm}, #{job_minEdubg},
+		#{job_career}, #{job_regDt},
+		#{job_closeDt},
+		#{job_wantedInfoUrl}, #{job_wantedMobileInfoUrl},
+		#{job_zipCd},
+		#{job_strtnmCd}, #{job_basicAddr}, #{job_detailAddr},
+		#{job_empTpCd}, #{job_jobsCd}, #{job_prefCd}
+		)
+	</insert>
+
+	<select id="one" parameterType="jobVO" resultType="jobVO">
+		select * from
+		recruit
+		where job_wantedAuthNo = #{job_wantedAuthNo}
+	</select>
+
+
+
+	<select id="count" resultType="int">
+		select count(*) from recruit
+		where
+<!-- 		<include refid="criteria"></include> -->
+		<!-- bno>0 -->
+	</select>
+	
+	<select id="getJobByCri" resultType="jobVO">
+
+		<![CDATA[select * from recruit 
+		]]>
+			<where>
+				<if test="type =='job_title'.toString()">
+					job_title like CONCAT('%'||#{keyword}||'%')
+				</if>
+				<if test="type =='job_company'.toString()">
+					job_company like CONCAT('%'||#{keyword||'%')
+				</if>
+			</where>
+		<![CDATA[order by job_wantedAuthNo DESC
+		limit #{startRow}, #{amount} ]]>
+	</select>
+
+	<!-- 검색 -->
+<!-- 	<sql id="criteria">
+		<trim prefix="(" suffix=") AND" prefixOverrides="OR">
+			<foreach item='type' collection="typeArr">
+				<trim prefix="OR">
+					<choose>
+						<when test="type =='T'.toString()">
+							title like '%'||#{keyword}||'%'
+						</when>
+						<when test="type =='C'.toString()">
+							title like '%'||#{keyword||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+ -->
+
+	<!-- 페이징 -->
+<!-- 	<select id="getJobByCri" resultType="jobVO">
+
+		<![CDATA[select * from recruit 
+		order by job_wantedAuthNo DESC]]>
+		<where><include refid="criteria"></include></where>
+		<![CDATA[
+		limit #{startRow}, #{amount} ]]>
+	</select> -->
+
+	<!-- <select id="getAllList" resultType="JobVO"> select from * recruit order 
+		by job_wantedAuthNo DESC </select> -->
+
+	<select id="all2" parameterType="pageVO" resultType="jobVO">
+
+		select *
+		from (
+		select
+		row_number() over(order by job_wantedAuthNo DESC) as jNum,
+		r.*
+		from recruit r) r2
+		where r2.jNum between #{start} and #{end}
+	</select>
+
+	<select id="all" resultType="jobVO">
+		select * from recruit
+	</select>
+</mapper>
