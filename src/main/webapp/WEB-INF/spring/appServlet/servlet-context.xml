@@ -21,8 +21,6 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.multi.cdb" />
-	<context:component-scan base-package="com.multi.cdb.bbs" />
-	<context:component-scan base-package="com.multi.cdb.filter" />
+	<context:component-scan base-package="com.multi.cdb.*" />
 	
 </beans:beans>

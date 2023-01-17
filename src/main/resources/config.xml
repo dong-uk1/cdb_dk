@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration
- PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
- "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
-	<!-- SQL문 정의할 때 VO표현을 간단하게 하고 싶은 경우. 별명을 지어서 사용 -->
    <typeAliases>
+      <typeAlias type="com.multi.cdb.yPolicy.YPolicyVO" alias="yPolicyVO"></typeAlias>
+      <typeAlias type="com.multi.cdb.job.JobVO" alias="jobVO"></typeAlias>
+      <typeAlias type="com.multi.cdb.job.PageVO" alias="pageVO"></typeAlias>
       <typeAlias type="com.multi.cdb.bbs.BbsVO" alias="BbsVO"></typeAlias>
       <typeAlias type="com.multi.cdb.bbs.ReplyVO" alias="ReplyVO"></typeAlias>
       <typeAlias type="com.multi.cdb.bbs.NewsVO" alias="NewsVO"></typeAlias>
-      <typeAlias type="com.multi.cdb.yPolicy.YPolicyVO" alias="YPolicyVO"></typeAlias>
    </typeAliases>
-
-	<mappers>
-		<!-- SQL문 정의하는 파일들의 목록을 지정. -->
-		<mapper resource="mapper/bbsMapper.xml" />
-		<mapper resource="mapper/replyMapper.xml" />
-		<mapper resource="mapper/newsMapper.xml" />
-		<mapper resource="mapper/filterMapper.xml" />
-		<mapper resource="mapper/YPolicyMapper.xml" />
-	</mappers>
+   
+   <mappers>
+      <mapper resource="mapper/yPolicyMapper.xml" />
+      <mapper resource="mapper/jobMapper.xml" />
+      <mapper resource="mapper/bbsMapper.xml" />
+		  <mapper resource="mapper/replyMapper.xml" />
+		  <mapper resource="mapper/newsMapper.xml" />
+		  <mapper resource="mapper/filterMapper.xml" />
+   </mappers>
 </configuration>
+
