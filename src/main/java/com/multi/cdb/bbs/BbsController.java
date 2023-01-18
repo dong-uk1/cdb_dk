@@ -83,7 +83,9 @@ public class BbsController implements stockDAOinter {
 	public void insert2(RecommendVO vo, Model model) {
 
 		int list = dao.insert2(vo);
+		int count = dao.recommend_count(vo);
 		model.addAttribute("list", list);
+		model.addAttribute("count", count);
 		// model.addAttribute("id", vo2.getBbs_Id());
 	}
 
