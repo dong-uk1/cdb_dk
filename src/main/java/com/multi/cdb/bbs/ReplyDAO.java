@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package com.multi.cdb.bbs;
 
 import java.util.List;
@@ -24,3 +25,10 @@ public class ReplyDAO {
 	}
 	
 }
+=======
+package com.multi.cdb.bbs;
+
+public class ReplyDAO {
+
+}
+>>>>>>> 8d1c19413864fe343b5f33f875caa98114e6c76d

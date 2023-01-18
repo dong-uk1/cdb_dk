@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="news">
+<<<<<<< HEAD
 	<insert id="r_create" parameterType="newsVO"  >
 		insert into r_news values (#{no}, #{title}, #{link}, #{category}, #{author},#{pubDate},#{description})
 	</insert>
@@ -27,3 +28,9 @@
 
 
 
+=======
+	<select id="list" resultType="NewsVO">
+		SELECT * FROM r_news ORDER BY pubDate desc limit 5 <!-- 상위5개만 출력 -->
+	</select>
+</mapper>
+>>>>>>> 8d1c19413864fe343b5f33f875caa98114e6c76d

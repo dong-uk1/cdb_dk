@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<<<<<<< HEAD
 <mapper namespace="reply">
 	<insert id="create" parameterType="replyVO"  >
 		insert into reply values (null, #{member_id}, #{reply_contents}, #{bbs_Id})
@@ -28,3 +29,6 @@
 
 
 
+=======
+<mapper namespace="com.multi.cdb.bbs.newsMapper"></mapper>
+>>>>>>> 8d1c19413864fe343b5f33f875caa98114e6c76d

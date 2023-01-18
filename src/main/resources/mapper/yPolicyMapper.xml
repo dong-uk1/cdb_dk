@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="yp">
+	<insert id="insert" parameterType="yPolicyVO">
+	insert into YP values (#{YP_ID}, #{YP_NAME}, #{YP_PI}, #{YP_INFO}, #{YP_CATEGORY}, #{YP_SSIZE}, #{YP_CONTENT}, #{YP_RQMAGE}, #{YP_RQMJOB}, #{YP_RQMEDU}, #{YP_RQMMAJR}, #{YP_RQMFIELD}, #{YP_AI}, #{YP_PERIOD}, #{YP_PROCEDURE}, #{YP_ANM}, #{YP_URL}, NULL, NULL)
+	</insert>
+
+</mapper>

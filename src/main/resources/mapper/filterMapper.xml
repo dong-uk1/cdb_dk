@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="filter">
+<!--
+"yp" 정책 / 정책명 : YP_NAME 
+"borrow" 임대주택 /공고명 : rhdrhaud 
+"buy" 분양주택 /공고명 : BY_PBNAME
+"recru" 일자리 / 채용제목 : job_title
+"bbs" 게시물 /게시물 제목 :  bbs_title 
+"news" 뉴스/ 뉴스 제목 : title
+select 따로따로
+  -->
+<!-- 	<select id="search" resultType="">
+		where ${search_option} like '%'||#{keyword}||'%'
+	</select> -->
+	<select id="one" parameterType="BbsVO" 
+					resultType="BbsVO">
+		SELECT * FROM bbs 
+		where bbs_contents like '%'||#{filtertext}||'%'
+	</select>
+
+</mapper>

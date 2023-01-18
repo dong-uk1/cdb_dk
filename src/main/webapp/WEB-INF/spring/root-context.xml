@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<<<<<<< HEAD
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
@@ -13,11 +14,32 @@
 			value="jdbc:mysql://localhost:3306/cdb?characterEncoding=UTF-8"></property>
 		<property name="username" value="root"></property>
 		<property name="password" value="1234"></property>
+=======
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<context:property-placeholder
+		location="classpath:db.properties" />
+
+	<!-- 1. dbcp싱글톤 필요(jdbc 1,2단계, 드라이버설정+db연결 -->
+	<bean id="dbcp" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+>>>>>>> 8d1c19413864fe343b5f33f875caa98114e6c76d
 	</bean>
 
 	<!-- 2. mybatis설정만 담당하는 싱글톤 필요(1에서 만든 dbcp를 낌) -->
 	<!-- myBatis의 설정 객체 생성 -->
 	<bean id="config" class="org.mybatis.spring.SqlSessionFactoryBean">
+<<<<<<< HEAD
 		<property name="dataSource" ref="dbcp"></property>
 		<property name="configLocation"
 			value="classpath:config.xml"></property>
@@ -37,4 +59,17 @@
 
 
 
+=======
+		<property name="dataSource" ref="dbcp" />
+		<property name="configLocation" value="classpath:config.xml" />
+	</bean>
+
+	<!-- 3. mybatis싱글톤 필요 -->
+	<!-- myBatis의 싱글톤 객체 생성 -->
+	<bean id="my" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="config" />
+	</bean>
+	<context:component-scan
+		base-package="com.multi.cdb.*" />
+>>>>>>> 8d1c19413864fe343b5f33f875caa98114e6c76d
 </beans>

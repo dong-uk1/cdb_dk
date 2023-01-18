@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+=======
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+>>>>>>> 8d1c19413864fe343b5f33f875caa98114e6c76d
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.multi</groupId>
@@ -24,7 +29,11 @@
 				<exclusion>
 					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
+<<<<<<< HEAD
 				 </exclusion>
+=======
+				</exclusion>
+>>>>>>> 8d1c19413864fe343b5f33f875caa98114e6c76d
 			</exclusions>
 		</dependency>
 		<dependency>
@@ -32,14 +41,30 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
+<<<<<<< HEAD
 				
+=======
+		
+		<!-- https://mvnrepository.com/artifact/org.json/json -->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20210307</version>
+		</dependency>
+
+
+>>>>>>> 8d1c19413864fe343b5f33f875caa98114e6c76d
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj-version}</version>
+<<<<<<< HEAD
 		</dependency>	
 		
+=======
+		</dependency>
+>>>>>>> 8d1c19413864fe343b5f33f875caa98114e6c76d
 		<!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -61,7 +86,11 @@
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
+<<<<<<< HEAD
 			<version>1.2.15</version>
+=======
+			<version>1.2.17</version>
+>>>>>>> 8d1c19413864fe343b5f33f875caa98114e6c76d
 			<exclusions>
 				<exclusion>
 					<groupId>javax.mail</groupId>
@@ -80,16 +109,24 @@
 					<artifactId>jmxri</artifactId>
 				</exclusion>
 			</exclusions>
+<<<<<<< HEAD
 			<scope>runtime</scope>
 		</dependency>
 
+=======
+			<!-- <scope>runtime</scope> -->
+		</dependency>
+>>>>>>> 8d1c19413864fe343b5f33f875caa98114e6c76d
 		<!-- @Inject -->
 		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
 			<version>1</version>
 		</dependency>
+<<<<<<< HEAD
 				
+=======
+>>>>>>> 8d1c19413864fe343b5f33f875caa98114e6c76d
 		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -108,52 +145,86 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
+<<<<<<< HEAD
 		
 
+=======
+		<!-- https://mvnrepository.com/artifact/org.bgee.log4jdbc-log4j2/log4jdbc-log4j2-jdbc4.1 -->
+		<dependency>
+			<groupId>org.bgee.log4jdbc-log4j2</groupId>
+			<artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
+			<version>1.16</version>
+		</dependency>
+>>>>>>> 8d1c19413864fe343b5f33f875caa98114e6c76d
 
 		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
+<<<<<<< HEAD
 			<version>4.7</version>
 			<scope>test</scope>
 		</dependency>        
 		
+=======
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- Spring Test -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+>>>>>>> 8d1c19413864fe343b5f33f875caa98114e6c76d
 		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
 			<version>3.4.0</version>
 		</dependency>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8d1c19413864fe343b5f33f875caa98114e6c76d
 		<!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
 		<dependency>
 			<groupId>com.mysql</groupId>
 			<artifactId>mysql-connector-j</artifactId>
 			<version>8.0.31</version>
 		</dependency>
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 8d1c19413864fe343b5f33f875caa98114e6c76d
 		<!-- https://mvnrepository.com/artifact/commons-dbcp/commons-dbcp -->
 		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
 			<version>1.4</version>
 		</dependency>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8d1c19413864fe343b5f33f875caa98114e6c76d
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
 			<version>5.0.1.RELEASE</version>
 		</dependency>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8d1c19413864fe343b5f33f875caa98114e6c76d
 		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
 			<version>1.3.2</version>
 		</dependency>
+<<<<<<< HEAD
 		
 		<dependency>
 			<groupId>commons-fileupload</groupId>
@@ -207,4 +278,66 @@
             </plugin>
         </plugins>
     </build>
+=======
+		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.10</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.9.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.9</version>
+				<configuration>
+					<additionalProjectnatures>
+						<projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
+					</additionalProjectnatures>
+					<additionalBuildcommands>
+						<buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
+					</additionalBuildcommands>
+					<downloadSources>true</downloadSources>
+					<downloadJavadocs>true</downloadJavadocs>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.5.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<compilerArgument>-Xlint:all</compilerArgument>
+					<showWarnings>true</showWarnings>
+					<showDeprecation>true</showDeprecation>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.2.1</version>
+				<configuration>
+					<mainClass>org.test.int1.Main</mainClass>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+>>>>>>> 8d1c19413864fe343b5f33f875caa98114e6c76d
 </project>

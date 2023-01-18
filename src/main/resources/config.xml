@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration
+<<<<<<< HEAD
  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
@@ -17,3 +18,28 @@
   	<mapper resource="mapper/replyMapper.xml" /> 
    </mappers>
 </configuration>
+=======
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+   <typeAliases>
+      <typeAlias type="com.multi.cdb.yPolicy.YPolicyVO" alias="yPolicyVO"></typeAlias>
+      <typeAlias type="com.multi.cdb.job.JobVO" alias="jobVO"></typeAlias>
+      <typeAlias type="com.multi.cdb.job.PageVO" alias="pageVO"></typeAlias>
+      <typeAlias type="com.multi.cdb.bbs.BbsVO" alias="BbsVO"></typeAlias>
+      <typeAlias type="com.multi.cdb.bbs.ReplyVO" alias="ReplyVO"></typeAlias>
+      <typeAlias type="com.multi.cdb.bbs.NewsVO" alias="NewsVO"></typeAlias>
+   </typeAliases>
+   
+   <mappers>
+      <mapper resource="mapper/yPolicyMapper.xml" />
+      <mapper resource="mapper/jobMapper.xml" />
+      <mapper resource="mapper/bbsMapper.xml" />
+		  <mapper resource="mapper/replyMapper.xml" />
+		  <mapper resource="mapper/newsMapper.xml" />
+		  <mapper resource="mapper/filterMapper.xml" />
+   </mappers>
+</configuration>
+
+>>>>>>> 8d1c19413864fe343b5f33f875caa98114e6c76d

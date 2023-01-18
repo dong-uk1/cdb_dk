@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package com.multi.cdb.bbs;
 
 import java.io.Console;
@@ -106,3 +107,10 @@ public class BbsController implements stockDAOinter {
 		model.addAttribute("result", result);
 	}
 }
+=======
+package com.multi.cdb.bbs;
+
+public class BbsController {
+
+}
+>>>>>>> 8d1c19413864fe343b5f33f875caa98114e6c76d
